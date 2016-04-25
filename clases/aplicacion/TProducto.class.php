@@ -215,7 +215,7 @@ class TProducto{
 		$db = TBase::conectaDB();
 		
 		if ($this->getId() == ''){
-			$rs = $db->Execute("INSERT INTO categoria(idEmpresa) VALUES (".$this->empresa->getId().");
+			$rs = $db->Execute("INSERT INTO producto(idEmpresa) VALUES (".$this->empresa->getId().");
 ");
 			$this->idCategoria = $db->Insert_ID();
 		}
