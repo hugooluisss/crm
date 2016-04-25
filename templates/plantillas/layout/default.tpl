@@ -61,6 +61,13 @@
 									<li><a href="usuarios">Usuarios</a> </li>
 								</ul>
 						</li>
+						<li class="menu-list">
+							<a href="#"><i class="lnr lnr-cog"></i>
+								<span>Productos</span></a>
+								<ul class="sub-menu-list">
+									<li><a href="categorias">Categorías</a></li>
+								</ul>
+						</li>
 						<li>
 							<a href="clientes"><i class="fa fa-users" aria-hidden="true"></i>
 								<span>Clientes</span></a>

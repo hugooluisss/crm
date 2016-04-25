@@ -4,39 +4,20 @@ $(document).ready(function(){
 	$("#frmAdd").validate({
 		debug: true,
 		rules: {
-			txtNombre: "required",
-			txtTelefono: {
-				digits: true,
-				minlength: 5,
-				maxlength: 12
-			},
-			txtEmail: {
-				email: true,
-			}
+			txtNombre: "required"
 		},
 		errorElement : 'span',
 		errorLabelContainer: '.errorTxt',
 		debug: true,
 		messages: {
-			txtEmail: {
-				email: "No es un correo válido"
-			},
-			txtTelefono: {
-				digits: "Solo números",
-				minlength: "Solo números y deben ser minimamente 5",
-				minlength: "Solo números y deben ser máximo 12"
-			},
 			txtNombre: "Este campo es necesario"
 		},
 		submitHandler: function(form){
-			var obj = new TCliente;
+			var obj = new TCategoria;
 			obj.add(
 				$("#id").val(), 
 				$("#txtNombre").val(), 
-				$("#selSexo").val(),
-				$("#txtTelefono").val(),
-				$("#txtEmail").val(),
-				$("#txtDireccion").val(),
+				$("#txtDescripcion").val(),
 				{
 					after: function(datos){
 						if (datos.band){
@@ -55,35 +36,32 @@ $(document).ready(function(){
     });
     
 	function getLista(){
-		$.get("listaClientes", function(html){
+		$.get("listaCategorias", function(html){
 			$("#dvLista").html(html);
 			
 			$("[action=modificar]").click(function(){
 				var el = jQuery.parseJSON($(this).attr("datos"));
 				
-				$("#id").val(el.idCliente);
+				$("#id").val(el.idCategoria);
 				$("#txtNombre").val(el.nombre);
-				$("#txtTelefono").val(el.telefono);
-				$("#txtSexo").val(el.sexo);
-				$("#txtEmail").val(el.email);
-				$("#txtDireccion").val(el.direccion);
+				$("#txtDescripcion").val(el.descripcion);
 				
 				$('.nav a[href="#add"]').tab('show');
 			});
 			
 			$("[action=eliminar]").click(function(){
 				if(confirm("¿Seguro?")){
-					var obj = new TCliente;
-					obj.del($(this).attr("cliente"), {
+					var obj = new TCategoria;
+					obj.del($(this).attr("categoria"), {
 						after: function(data){
 							if (data.band == false)
-								alert("Ocurrió un error al eliminar al cliente");
+								alert("Ocurrió un error al eliminar la categoria");
 							getLista();
 						}
 					});
 				}
 			});
-			$("#tblClientes").DataTable({
+			$("#tblCategorias").DataTable({
 				"responsive": true,
 				"language": espaniol,
 				"paging": true,

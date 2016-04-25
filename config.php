@@ -101,3 +101,49 @@ $conf['cclientes'] = array(
 	'descripcion' => 'Controlador de clientes',
 	'seguridad' => false,
 	'capa' => LAYOUT_AJAX);
+	
+/*Categorias*/
+$conf['categorias'] = array(
+	'controlador' => 'categorias.php',
+	'vista' => 'categorias/panel.tpl',
+	'descripcion' => 'Administración de categorias',
+	'seguridad' => true,
+	'js' => array('categoria.class.js'),
+	'jsTemplate' => array('categorias.js'),
+	'capa' => LAYOUT_DEFECTO);
+
+$conf['listaCategorias'] = array(
+	'controlador' => 'categorias.php',
+	'vista' => 'categorias/lista.tpl',
+	'descripcion' => 'Lista de categorias',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
+	
+$conf['ccategorias'] = array(
+	'controlador' => 'categorias.php',
+	'descripcion' => 'Controlador de categorias',
+	'seguridad' => false,
+	'capa' => LAYOUT_AJAX);
+	
+/*Categorias*/
+$conf['productos'] = array(
+	'controlador' => 'categorias.php',
+	'vista' => 'categorias/panel.tpl',
+	'descripcion' => 'Administración de categorias',
+	'seguridad' => true,
+	'js' => array('categoria.class.js'),
+	'jsTemplate' => array('categorias.js'),
+	'capa' => LAYOUT_DEFECTO);
+
+$conf['listaProductos'] = array(
+	'controlador' => 'categorias.php',
+	'vista' => 'categorias/lista.tpl',
+	'descripcion' => 'Lista de categorias',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
+	
+$conf['cproductos'] = array(
+	'controlador' => 'categorias.php',
+	'descripcion' => 'Controlador de categorias',
+	'seguridad' => false,
+	'capa' => LAYOUT_AJAX);

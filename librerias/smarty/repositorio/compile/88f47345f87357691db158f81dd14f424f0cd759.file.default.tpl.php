@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-23 13:10:08
+<?php /* Smarty version Smarty-3.1.11, created on 2016-04-25 13:42:28
          compiled from "templates/plantillas/layout/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:143307706257199ad0dc2504-86616377%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88f47345f87357691db158f81dd14f424f0cd759' => 
     array (
       0 => 'templates/plantillas/layout/default.tpl',
-      1 => 1461435005,
+      1 => 1461609580,
       2 => 'file',
     ),
   ),
@@ -95,6 +95,13 @@ dist/js/jquery-1.10.2.min.js"></script>
 								<ul class="sub-menu-list">
 									<li><a href="empresa">Mi empresa</a></li>
 									<li><a href="usuarios">Usuarios</a> </li>
+								</ul>
+						</li>
+						<li class="menu-list">
+							<a href="#"><i class="lnr lnr-cog"></i>
+								<span>Productos</span></a>
+								<ul class="sub-menu-list">
+									<li><a href="categorias">Categorías</a></li>
 								</ul>
 						</li>
 						<li>
