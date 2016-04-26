@@ -63,7 +63,7 @@ switch($objModulo->getId()){
 			case 'validaCodigo':
 				global $userSesion;
 				$db = TBase::conectaDB();
-				$rs = $db->Execute("select idProducto from producto a join categoria b using(idCategoria) where clave = '".$_POST['txtClave']."' and idEmpresa = ".$userSesion->empresa->getId());
+				$rs = $db->Execute("select idProducto from producto a join categoria b using(idCategoria) where clave = '".$_POST['txtClave']."' and idEmpresa = ".$userSesion->empresa->getId()." and not idProducto = '".$_POST['id']."'");
 				
 				echo $rs->EOF?"true":"false";
 			break;

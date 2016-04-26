@@ -1,6 +1,11 @@
 $(document).ready(function(){
 	getLista();
 	
+	$('.nav a[href="#add"]').click(function(){
+		$("#frmAdd")[0].reset();
+		$("#frmAdd #id").val("");
+	});
+	
 	$("#frmAdd").validate({
 		debug: true,
 		rules: {
@@ -12,7 +17,10 @@ $(document).ready(function(){
 					url: "cproductos",
 					type: "post",
 					data: {
-						action: "validaCodigo"
+						action: "validaCodigo",
+						id: function(){
+							return $("#id").val();
+						}
 					}
 				}
 			},
