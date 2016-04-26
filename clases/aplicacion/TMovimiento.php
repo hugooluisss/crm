@@ -9,7 +9,7 @@ class TMovimiento{
 	private $idMovimiento;
 	private $idVenta;
 	private $clave;
-	private $descripcion
+	private $descripcion;
 	private $cantidad;
 	private $precio;
 	private $descuento;

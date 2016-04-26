@@ -147,3 +147,40 @@ $conf['cproductos'] = array(
 	'descripcion' => 'Controlador de productos',
 	'seguridad' => false,
 	'capa' => LAYOUT_AJAX);
+	
+/*Productos*/
+$conf['ventas'] = array(
+	'controlador' => 'ventas.php',
+	'vista' => 'ventas/panel.tpl',
+	'descripcion' => 'Administración de ventas',
+	'seguridad' => true,
+	'js' => array('venta.class.js'),
+	'jsTemplate' => array('ventas.js'),
+	'capa' => LAYOUT_DEFECTO);
+
+$conf['listaVentas'] = array(
+	'controlador' => 'ventas.php',
+	'vista' => 'ventas/lista.tpl',
+	'descripcion' => 'Lista de ventas',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
+	
+$conf['cventas'] = array(
+	'controlador' => 'ventas.php',
+	'descripcion' => 'Controlador de ventas',
+	'seguridad' => false,
+	'capa' => LAYOUT_AJAX);
+	
+$conf['clientesVenta'] = array(
+	'controlador' => 'clientes.php',
+	'vista' => 'ventas/listaClientes.tpl',
+	'descripcion' => 'Lista de ventas',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
+	
+$conf['productosVenta'] = array(
+	'controlador' => 'productos.php',
+	'vista' => 'ventas/listaProductos.tpl',
+	'descripcion' => 'Lista de productos',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);

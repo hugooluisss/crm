@@ -21,7 +21,7 @@ switch($objModulo->getId()){
 		}
 		$smarty->assign("tipos", $datos);
 	break;
-	case 'listaProductos':
+	case 'listaProductos': case 'productosVenta':
 		$db = TBase::conectaDB();
 		global $userSesion;
 		$rs = $db->Execute("select a.*, b.nombre as categoria, c.nombre as tipo from producto a join categoria b using(idCategoria) join tipoproducto c using(idTipo) where idEmpresa = ".$userSesion->empresa->getId());

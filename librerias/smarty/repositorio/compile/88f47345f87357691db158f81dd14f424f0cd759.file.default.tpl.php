@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-26 09:45:32
+<?php /* Smarty version Smarty-3.1.11, created on 2016-04-26 17:07:53
          compiled from "templates/plantillas/layout/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:143307706257199ad0dc2504-86616377%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88f47345f87357691db158f81dd14f424f0cd759' => 
     array (
       0 => 'templates/plantillas/layout/default.tpl',
-      1 => 1461681862,
+      1 => 1461708472,
       2 => 'file',
     ),
   ),
@@ -108,6 +108,13 @@ dist/js/jquery-1.10.2.min.js"></script>
 						<li>
 							<a href="clientes"><i class="fa fa-users" aria-hidden="true"></i>
 								<span>Clientes</span></a>
+						</li>
+						<li class="menu-list">
+							<a href="#"><i class="fa fa-cart-arrow-down"></i>
+								<span>Ventas</span></a>
+								<ul class="sub-menu-list">
+									<li><a href="ventas">Caja</a></li>
+								</ul>
 						</li>
 					</ul>
 				<!--sidebar nav end-->

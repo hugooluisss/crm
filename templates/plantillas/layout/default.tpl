@@ -73,6 +73,13 @@
 							<a href="clientes"><i class="fa fa-users" aria-hidden="true"></i>
 								<span>Clientes</span></a>
 						</li>
+						<li class="menu-list">
+							<a href="#"><i class="fa fa-cart-arrow-down"></i>
+								<span>Ventas</span></a>
+								<ul class="sub-menu-list">
+									<li><a href="ventas">Caja</a></li>
+								</ul>
+						</li>
 					</ul>
 				<!--sidebar nav end-->
 			</div>
