@@ -125,25 +125,25 @@ $conf['ccategorias'] = array(
 	'seguridad' => false,
 	'capa' => LAYOUT_AJAX);
 	
-/*Categorias*/
+/*Productos*/
 $conf['productos'] = array(
-	'controlador' => 'categorias.php',
-	'vista' => 'categorias/panel.tpl',
-	'descripcion' => 'Administración de categorias',
+	'controlador' => 'productos.php',
+	'vista' => 'productos/panel.tpl',
+	'descripcion' => 'Administración de productos',
 	'seguridad' => true,
-	'js' => array('categoria.class.js'),
-	'jsTemplate' => array('categorias.js'),
+	'js' => array('producto.class.js'),
+	'jsTemplate' => array('productos.js'),
 	'capa' => LAYOUT_DEFECTO);
 
 $conf['listaProductos'] = array(
-	'controlador' => 'categorias.php',
-	'vista' => 'categorias/lista.tpl',
-	'descripcion' => 'Lista de categorias',
+	'controlador' => 'productos.php',
+	'vista' => 'productos/lista.tpl',
+	'descripcion' => 'Lista de productos',
 	'seguridad' => true,
 	'capa' => LAYOUT_AJAX);
 	
 $conf['cproductos'] = array(
-	'controlador' => 'categorias.php',
-	'descripcion' => 'Controlador de categorias',
+	'controlador' => 'productos.php',
+	'descripcion' => 'Controlador de productos',
 	'seguridad' => false,
 	'capa' => LAYOUT_AJAX);

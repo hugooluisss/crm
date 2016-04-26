@@ -62,10 +62,11 @@
 								</ul>
 						</li>
 						<li class="menu-list">
-							<a href="#"><i class="lnr lnr-cog"></i>
-								<span>Productos</span></a>
+							<a href="#"><i class="fa fa-database"></i>
+								<span>Almacen</span></a>
 								<ul class="sub-menu-list">
 									<li><a href="categorias">Categorías</a></li>
+									<li><a href="productos">Productos</a></li>
 								</ul>
 						</li>
 						<li>

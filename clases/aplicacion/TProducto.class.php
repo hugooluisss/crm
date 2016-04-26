@@ -68,6 +68,31 @@ class TProducto{
 	}
 	
 	/**
+	* Establece el tipo
+	*
+	* @autor Hugo
+	* @access public
+	* @param decimal $val Valor a asignar
+	* @return boolean True si se realizó sin problemas
+	*/
+	public function setTipo($val = 0){
+		$this->idTipo = $val;
+		return true;
+	}
+	
+	
+	/**
+	* Retorna el tipo
+	*
+	* @autor Hugo
+	* @access public
+	* @return decimal Precio
+	*/
+	public function getTipo(){
+		return $this->idTipo;
+	}
+	
+	/**
 	* Establece la clave
 	*
 	* @autor Hugo
@@ -211,22 +236,29 @@ class TProducto{
 	* @return boolean True si se realizó sin problemas
 	*/
 	public function guardar(){
-		if ($this->empresa->getId() == '') return false;
+		if ($this->categoria->getId() == '') return false;
+		if ($this->getTipo() == '') return false;
+		
 		$db = TBase::conectaDB();
 		
 		if ($this->getId() == ''){
-			$rs = $db->Execute("INSERT INTO producto(idEmpresa) VALUES (".$this->empresa->getId().");
+			$rs = $db->Execute("INSERT INTO producto(idCategoria, idTipo) VALUES (".$this->categoria->getId().", ".$this->getTipo().");
 ");
-			$this->idCategoria = $db->Insert_ID();
+			$this->idProducto = $db->Insert_ID();
 		}
 		
-		if ($this->idCategoria == '') return false;
+		if ($this->idProducto == '') return false;
 		
-		$rs = $db->Execute("UPDATE categoria
+		$rs = $db->Execute("UPDATE producto
 			SET
+				idTipo = '".$this->getTipo()."',
+				idCategoria = ".$this->categoria->getId().",
+				clave = '".$this->getClave()."',
 				nombre = '".$this->getNombre()."',
-				descripcion = '".$this->getDescripcion()."'
-			WHERE idCategoria = ".$this->getId());
+				descripcion = '".$this->getDescripcion()."',
+				precio = ".$this->getPrecio().",
+				costo = ".$this->getPrecio()."
+			WHERE idProducto = ".$this->getId());
 			
 		return $rs?true:false;
 	}
@@ -242,7 +274,7 @@ class TProducto{
 		if ($this->getId() == '') return false;
 		
 		$db = TBase::conectaDB();
-		return $db->Execute("delete from categoria where idCategoria = ".$this->getId())?true:false;
+		return $db->Execute("delete from producto where idProducto = ".$this->getId())?true:false;
 	}
 }
 ?>
