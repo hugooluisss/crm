@@ -19,11 +19,11 @@ $(document).ready(function(){
 			txtNombre: "required",
 			txtPrecio: {
 				required: true,
-				digits: true
+				number: true
 			},
 			txtCosto: {
 				required: true,
-				digits: true
+				number: true
 			}
 		},
 		errorElement : 'span',
@@ -39,11 +39,11 @@ $(document).ready(function(){
 			txtNombre: "Este campo es necesario",
 			txtPrecio: {
 				required: "Este campo es necesario",
-				digits: "Solo se aceptan números"
+				number: "Solo se aceptan números"
 			},
 			txtCosto: {
 				required: "Este campo es necesario",
-				digits: "Solo se aceptan números"
+				number: "Solo se aceptan números"
 			}
 		},
 		submitHandler: function(form){

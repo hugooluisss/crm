@@ -24,7 +24,7 @@ switch($objModulo->getId()){
 	case 'listaProductos':
 		$db = TBase::conectaDB();
 		global $userSesion;
-		$rs = $db->Execute("select a.*, b.nombre as categoria from producto a join categoria b using(idCategoria) where idEmpresa = ".$userSesion->empresa->getId());
+		$rs = $db->Execute("select a.*, b.nombre as categoria, c.nombre as tipo from producto a join categoria b using(idCategoria) join tipoproducto c using(idTipo) where idEmpresa = ".$userSesion->empresa->getId());
 		$datos = array();
 		while(!$rs->EOF){
 			$rs->fields['json']	= json_encode($rs->fields);
