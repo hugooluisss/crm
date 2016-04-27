@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-26 18:01:33
+<?php /* Smarty version Smarty-3.1.11, created on 2016-04-27 09:25:09
          compiled from "templates/plantillas/modulos/ventas/winProductos.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1963682027571ff34d044779-76526215%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '04fcee4ab2a3223e347c5df045ae612a82134ceb' => 
     array (
       0 => 'templates/plantillas/modulos/ventas/winProductos.tpl',
-      1 => 1461711691,
+      1 => 1461763864,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.11',
   'unifunc' => 'content_571ff34d047939_57645736',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_571ff34d047939_57645736')) {function content_571ff34d047939_57645736($_smarty_tpl) {?><div class="modal fade" id="winProductos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">

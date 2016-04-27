@@ -21,7 +21,8 @@
 			<div class="form-group">
 				<label for="txtFecha" class="col-sm-2 control-label">Fecha *</label>
 				<div class="col-sm-2">
-					<input type="text" id="txtFecha" name="txtFecha" autofocus="true" class="form-control" autocomplete="false" value="{$smarty.now|date_format:"Y-m-d"}"/>
+					<input type="text" id="txtFecha" name="txtFecha" autofocus="true" class="form-control" autocomplete="false" value="{$smarty.now|date_format:"Y-m-d"}" placeholder="Y-m-d"/>
+					<div id="datepicker"></div>
 				</div>
 			</div>
 			<div class="form-group">
@@ -78,13 +79,17 @@
 				</div>
 				<label for="txtCantidad" class="col-sm-offset-2 col-sm-2 control-label">Precio</label>
 				<div class="col-sm-2">
-					<input type="text" id="txtPrecio" name="txtPrecio" autofocus="true" class="form-control" autocomplete="false" placeholder="Precio"/>
+					<input type="text" id="txtPrecio" name="txtPrecio" autofocus="true" class="form-control text-right" autocomplete="false" placeholder="Precio"/>
 				</div>
 				<div class="col-sm-1 text-right">
 					<button type="submit" id="btnReset" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i></button>
 				</div>
 			</div>
 		</form>
+		<br/><br/>
+		<hr />
+		<br/>
+		<div id="lstMovimiento"></div>
 	</div>
 </div>
 

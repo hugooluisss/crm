@@ -2,10 +2,10 @@
 global $objModulo;
 
 switch($objModulo->getId()){
-	case 'listaCategorias':
+	case 'listaVentas':
 		$db = TBase::conectaDB();
 		global $userSesion;
-		$rs = $db->Execute("select * from categoria where idEmpresa = ".$userSesion->empresa->getId());
+		$rs = $db->Execute("select * from venta a join cliente b using(idCliente) where idEmpresa = ".$userSesion->empresa->getId());
 		$datos = array();
 		while(!$rs->EOF){
 			$rs->fields['json']	= json_encode($rs->fields);
@@ -16,21 +16,36 @@ switch($objModulo->getId()){
 
 		$smarty->assign("lista", $datos);
 	break;
-	case 'ccategorias':
+	case 'listaMovimientosVenta':
+		$db = TBase::conectaDB();
+		global $userSesion;
+		$rs = $db->Execute("select * from movventa where idVenta = ".$_POST['venta']);
+		$datos = array();
+		while(!$rs->EOF){
+			$rs->fields['json']	= json_encode($rs->fields);
+			array_push($datos, $rs->fields);
+			
+			$rs->moveNext();
+		}
+
+		$smarty->assign("lista", $datos);
+	break;
+	case 'cventas':
 		switch($objModulo->getAction()){
 			case 'guardar':
-				$obj = new TCategoria($_POST['id']);
+				$obj = new TVenta($_POST['id']);
 				global $userSesion;
-				$obj->setNombre($_POST['nombre']);
-				$obj->setDescripcion($_POST['descripcion']);
+				$obj->setFecha($_POST['fecha']);
+				$obj->setCliente($_POST['cliente']);
+				$obj->setPagos($_POST['cliente']);
 				
 				if ($_POST['id'] == '')
-					$obj->empresa->setId($userSesion->empresa->getId());
+					$obj->setUsuario($userSesion->getId());
 				
 				if ($obj->guardar())
 					echo json_encode(array("band" => "true", "id" => $obj->getId()));
 				else
-					echo json_encode(array("band" => "false"));
+					echo json_encode(array("band" => "false", "mensaje" => "No se guardó"));
 			break;
 			case 'del':
 				$obj = new TCategoria($_POST['id']);

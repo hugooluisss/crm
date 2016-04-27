@@ -190,17 +190,18 @@ class TVenta{
 		
 		if ($this->getId() == ''){
 			$rs = $db->Execute("INSERT INTO venta(idUsuario, idCliente) VALUES (".$this->usuario->getId().", ".$this->cliente->getId().")");
+			
 			$this->idVenta = $db->Insert_ID();
 		}
 		
 		if ($this->idVenta == '') return false;
-		
+
 		$rs = $db->Execute("UPDATE venta
 			SET
-				cliente = ".$this->cliente->getId().",
+				idCliente = ".$this->cliente->getId().",
 				fecha = now(),
 				pagos = ".$this->getPagos().",
-				entregados = ".$this->getEntregados()."
+				entregados = ".($this->getEntregados()?1:0)."
 			WHERE idVenta = ".$this->getId());
 			
 		return $rs?true:false;

@@ -1,34 +1,36 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-27 09:25:12
-         compiled from "templates/plantillas/modulos/ventas/listaClientes.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1718506044571feca0f2a909-49824896%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.11, created on 2016-04-27 13:42:54
+         compiled from "templates/plantillas/modulos/ventas/listaMovimientos.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:5815182065721082ea7ab54-82375234%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '3c0bbfeaacc6e662c8d6bc18f1eb19a154d38058' => 
+    '6c31a150d8438f2f9725f8d86193067d4003e397' => 
     array (
-      0 => 'templates/plantillas/modulos/ventas/listaClientes.tpl',
-      1 => 1461763864,
+      0 => 'templates/plantillas/modulos/ventas/listaMovimientos.tpl',
+      1 => 1461768173,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1718506044571feca0f2a909-49824896',
+  'nocache_hash' => '5815182065721082ea7ab54-82375234',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_571feca1083329_99068789',
   'variables' => 
   array (
     'lista' => 0,
     'row' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5721082ebde8a3_59452974',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_571feca1083329_99068789')) {function content_571feca1083329_99068789($_smarty_tpl) {?><table id="tblClientes" class="table table-bordered table-hover">
+<?php if ($_valid && !is_callable('content_5721082ebde8a3_59452974')) {function content_5721082ebde8a3_59452974($_smarty_tpl) {?><table id="tblMovimientos" class="table table-bordered table-hover">
 	<thead>
 		<tr>
-			<th>#</th>
+			<th>Clave</th>
 			<th>Nombre</th>
+			<th>Cant</th>
+			<th>P. U.</th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
@@ -39,9 +41,13 @@ foreach ($_from as $_smarty_tpl->tpl_vars['row']->key => $_smarty_tpl->tpl_vars[
 $_smarty_tpl->tpl_vars['row']->_loop = true;
 ?>
 		<tr>
-			<td><?php echo $_smarty_tpl->tpl_vars['row']->value['idCliente'];?>
+			<td><?php echo $_smarty_tpl->tpl_vars['row']->value['clave'];?>
 </td>
 			<td><?php echo $_smarty_tpl->tpl_vars['row']->value['nombre'];?>
+</td>
+			<td><?php echo $_smarty_tpl->tpl_vars['row']->value['cantidad'];?>
+</td>
+			<td><?php echo $_smarty_tpl->tpl_vars['row']->value['precio'];?>
 </td>
 			<td class="text-right">
 				<button type="button" class="btn btn-default" action="seleccionar" title="Seleccionar" cliente='<?php echo $_smarty_tpl->tpl_vars['row']->value['json'];?>

@@ -184,3 +184,10 @@ $conf['productosVenta'] = array(
 	'descripcion' => 'Lista de productos',
 	'seguridad' => true,
 	'capa' => LAYOUT_AJAX);
+	
+$conf['listaMovimientosVenta'] = array(
+	'controlador' => 'ventas.php',
+	'vista' => 'ventas/listaMovimientos.tpl',
+	'descripcion' => 'Lista de movimientos',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);

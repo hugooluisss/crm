@@ -33,6 +33,8 @@
 <script src="{$PAGE.ruta}dist/js/jquery-1.10.2.min.js"></script>
 <!-- Placed js at the end of the document so the pages load faster -->
 
+	<link rel="stylesheet" href="{$PAGE.ruta}plugins/datepicker/datepicker3.css">
+	<link rel="stylesheet" href="{$PAGE.ruta}plugins/daterangepicker/daterangepicker-bs3.css">
 </head> 
    
  <body class="sticky-header left-side-collapsed">
@@ -149,7 +151,12 @@
     <script src="{$PAGE.ruta}plugins/datatables/dataTables.bootstrap.min.js"></script>
     <script src="{$PAGE.ruta}plugins/datatables/lenguaje/ES-mx.js"></script>
     
+    <script type="text/javascript" src="{$PAGE.ruta}plugins/validate/validate.es.js"></script>
     <script type="text/javascript" src="{$PAGE.ruta}plugins/validate/validate.js"></script>
+    
+    <script type="text/javascript" src="{$PAGE.ruta}plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="{$PAGE.ruta}plugins/datepicker/locales/bootstrap-datepicker.es.js"></script>
+    <link rel="stylesheet" href="{$PAGE.ruta}plugins/datepicker/datepicker3.css" />
 
    
 

@@ -1,10 +1,13 @@
 $(document).ready(function(){
 	getLista();
+	$("#txtFecha").datepicker( "option", "dateFormat", "yyyy-mm-dd" );
 	
 	$('.nav a[href="#add"]').click(function(){
 		$("#frmAdd")[0].reset();
 		$("#frmAdd #id").val("");
 	});
+	
+	showDetalle();
 	
 	$('.nav a[href="#add"]').tab('show');
 	
@@ -66,29 +69,32 @@ $(document).ready(function(){
 	});
 	
 	$("#frmAdd").validate({
-		debug: true,
+		debug: false,
 		rules: {
-			txtNombre: "required"
+			txtFecha: "required",
+			txtCliente: "required"
 		},
 		errorElement : 'span',
 		errorLabelContainer: '.errorTxt',
-		debug: true,
-		messages: {
-			txtNombre: "Este campo es necesario"
-		},
 		submitHandler: function(form){
-			var obj = new TCategoria;
-			obj.add(
+			var obj = new TVenta;
+			obj.guardar(
 				$("#id").val(), 
-				$("#txtNombre").val(), 
-				$("#txtDescripcion").val(),
+				$("#txtCliente").attr("idCLiente"), 
+				$("#selPagos").val(),
+				$("#txtFecha").val(),
 				{
+					before: function(){
+						$("#frmAdd").prop("disabled", true);
+					},
 					after: function(datos){
+						$("#frmAdd").prop("disabled", false);
+						
 						if (datos.band){
+							alert("Listo... puedes ingresar los artículos vendidos");
+							$("#frmAdd #id").val(datos.id);
+							showDetalle();
 							getLista();
-							
-							$("#frmAdd").get(0).reset();
-							$('.nav a[href="#lista"]').tab('show');
 						}else{
 							alert("Upps... " + datos.mensaje);
 						}
@@ -106,12 +112,56 @@ $(document).ready(function(){
 			$("[action=modificar]").click(function(){
 				var el = jQuery.parseJSON($(this).attr("datos"));
 				
-				$("#id").val(el.idCategoria);
-				$("#txtNombre").val(el.nombre);
-				$("#txtDescripcion").val(el.descripcion);
+				$("#frmAdd #id").val(el.idVenta);
+				$("#frmAdd #txtCliente").val(el.nombre);
+				$("#frmAdd #txtCliente").attr("idCliente", el.idCliente);
+				$("#frmAdd #selPagos").val(el.pagos);
+				$("#frmAdd #txtFecha").val(el.fecha);
+				
+				showDetalle();
 				
 				$('.nav a[href="#add"]').tab('show');
 			});
+			
+			$("[action=eliminar]").click(function(){
+				if(confirm("¿Seguro?")){
+					var obj = new TVenta ;
+					obj.del($(this).attr("venta"), {
+						after: function(data){
+							if (data.band == false)
+								alert("Ocurrió un error al eliminar la venta");
+							getLista();
+						}
+					});
+				}
+			});
+			
+			$("#tblVentas").DataTable({
+				"responsive": true,
+				"language": espaniol,
+				"paging": true,
+				"lengthChange": false,
+				"ordering": true,
+				"info": true,
+				"autoWidth": true
+			});
+		});
+	}
+	
+	function showDetalle(){
+		if($("#frmAdd #id").val() == '')
+			$("#frmAddProductos").hide();
+		else{
+			$("#frmAddProductos").show();
+			
+			getListaMovimientos();
+		}
+	}
+	
+	
+	function getListaMovimientos(){
+		$.post("listaMovimientosVenta", {"venta": $("#frmAdd #id").val()}, function(html){
+			$("#lstMovimiento").html(html);
 			
 			$("[action=eliminar]").click(function(){
 				if(confirm("¿Seguro?")){
@@ -125,10 +175,11 @@ $(document).ready(function(){
 					});
 				}
 			});
-			$("#tblVentas").DataTable({
+			
+			$("#tblMovimientos").DataTable({
 				"responsive": true,
 				"language": espaniol,
-				"paging": true,
+				"paging": false,
 				"lengthChange": false,
 				"ordering": true,
 				"info": true,
