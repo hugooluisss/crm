@@ -49,11 +49,12 @@ $conf['clogin'] = array(
 	'capa' => LAYOUT_AJAX);
 
 $conf['panelPrincipal'] = array(
-	#'controlador' => 'index.php',
+	'controlador' => 'index.php',
 	'vista' => 'inicio.tpl',
 	'descripcion' => 'Vista del panel',
 	'seguridad' => true,
-	'js' => array(),
+	'js' => array("venta.class.js"),
+	'jsTemplate' => array("index.js"),
 	'capa' => LAYOUT_DEFECTO);
 
 $conf['usuarios'] = array(
@@ -256,3 +257,26 @@ $conf['usuariosAdmon'] = array(
 	'js' => array('usuario.class.js'),
 	'jsTemplate' => array('usuarios.js'),
 	'capa' => LAYOUT_DEFECTO);
+	
+/*Categorias*/
+$conf['suscripciones'] = array(
+	'controlador' => 'suscripciones.php',
+	'vista' => 'suscripciones/panel.tpl',
+	'descripcion' => 'Administración de suscripciones',
+	'seguridad' => true,
+	'js' => array('suscripcion.class.js'),
+	'jsTemplate' => array('suscripciones.js'),
+	'capa' => LAYOUT_DEFECTO);
+
+$conf['listaSuscripciones'] = array(
+	'controlador' => 'suscripciones.php',
+	'vista' => 'suscripciones/lista.tpl',
+	'descripcion' => 'Lista de categorias',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
+	
+$conf['csuscripciones'] = array(
+	'controlador' => 'suscripciones.php',
+	'descripcion' => 'Controlador de suscripciones',
+	'seguridad' => false,
+	'capa' => LAYOUT_AJAX);

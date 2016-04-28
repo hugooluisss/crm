@@ -56,7 +56,7 @@ $(document).ready(function(){
 			var obj = new TUsuario;
 			obj.add(
 				$("#id").val(), 
-				"", 
+				$("#empresa").val(), 
 				$("#txtNombre").val(), 
 				$("#txtApellidos").val(),
 				$("#txtEmail").val(),
@@ -87,7 +87,9 @@ $(document).ready(function(){
     });
     
 	function getLista(){
-		$.get("listaUsuarios", function(html){
+		$.post("listaUsuarios", {
+			"empresa": $("#empresa").val()
+		}, function(html){
 			$("#dvLista").html(html);
 			
 			$("[action=modificar]").click(function(){

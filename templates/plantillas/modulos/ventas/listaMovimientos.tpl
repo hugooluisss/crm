@@ -4,7 +4,7 @@
 			<th>Clave</th>
 			<th>Descripción</th>
 			<th>Cant</th>
-			<th>P. U.</th>
+			<th>Precio</th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-28 09:30:09
+<?php /* Smarty version Smarty-3.1.11, created on 2016-04-28 10:40:44
          compiled from "templates/plantillas/modulos/usuarios/panel.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6808161235719b2337d7254-01207621%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '75fca16c9665563fbe115b9d9483a90d1409c54e' => 
     array (
       0 => 'templates/plantillas/modulos/usuarios/panel.tpl',
-      1 => 1461598044,
+      1 => 1461858042,
       2 => 'file',
     ),
   ),
@@ -19,6 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_5719b233812c97_16287239',
   'variables' => 
   array (
+    'empresa' => 0,
     'perfiles' => 0,
     'row' => 0,
   ),
@@ -30,6 +31,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	</div>
 </div>
 
+<div class="row">
+	<div class="col-lg-6">
+		<?php echo $_smarty_tpl->tpl_vars['empresa']->value->getRazonSocial();?>
+
+	</div>
+	<div class="col-lg-6 text-right">
+		<div class="btn-group">
+			<a href="empresas" class="btn btn-primary">Ir a empresas</a>
+		</div>
+	</div>
+</div>
+
+<br />
 <ul class="nav nav-tabs">
 	<li class="active"><a data-toggle="tab" href="#lista">Registrados</a></li>
 	<li><a data-toggle="tab" href="#add">Agregar o modificar</a></li>
@@ -92,6 +106,8 @@ $_smarty_tpl->tpl_vars["row"]->_loop = true;
 			<button type="reset" id="btnReset" class="btn btn-default">Cancelar</button>
 			<button type="submit" class="btn btn-info pull-right">Guardar</button>
 			<input type="hidden" id="id"/>
+			<input type="hidden" id="empresa" value="<?php echo $_smarty_tpl->tpl_vars['empresa']->value->getId();?>
+"/>
 		</form>
 	</div>
 </div><?php }} ?>

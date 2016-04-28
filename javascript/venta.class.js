@@ -69,4 +69,18 @@ TVenta = function(){
 			if (fn.after !== undefined) fn.after(data);
 		}, "json");
 	};
+	
+	this.getHistorial = function(inicio, fn){
+		if (fn.before !== undefined) fn.before();
+		
+		$.post('cventas', {
+			"action": "historial",
+			"inicio": inicio,
+		}, function(data){
+			if (data.band == 'false')
+				console.log("Ocurrio un error al obtener el historial de ventas");
+			
+			if (fn.after !== undefined) fn.after(data);
+		}, "json");
+	}
 };

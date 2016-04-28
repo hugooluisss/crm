@@ -7,7 +7,7 @@
 **/
 class TSuscripcion{
 	private $idSuscripcion;
-	private $idPaquete;
+	public $paquete;
 	private $idEmpresa;
 	private $registro;
 	private $inicio;
@@ -21,6 +21,7 @@ class TSuscripcion{
 	* @param int $id identificador del objeto
 	*/
 	public function TSuscripcion($id = ''){
+		$this->paquete = new TPaquete;
 		$this->setId($id);
 		
 		return true;
@@ -43,7 +44,10 @@ class TSuscripcion{
 		if ($rs->EOF) return false;
 		
 		foreach($rs->fields as $key => $val){
-			$this->$key = $val;
+			if ($key == 'idPaquete')
+				$this->paquete = new TPAquete($val);
+			else
+				$this->$key = $val;
 		}
 		
 		return true;
@@ -66,25 +70,13 @@ class TSuscripcion{
 	*
 	* @autor Hugo
 	* @access public
-	* @param int $val Valor a asignar
+	* @param string $val Valor a asignar
 	* @return boolean True si se realizó sin problemas
 	*/
 	
-	public function setPaquete($val = 0){
-		$this->paquete = $val;
+	public function setPaquete($val = ''){
+		$this->paquete = new TPaquete($val);
 		return true;
-	}
-	
-	/**
-	* Retorna el paquete
-	*
-	* @autor Hugo
-	* @access public
-	* @return int Identificador
-	*/
-	
-	public function getPaquete(){
-		return $this->idPaquete;
 	}
 	
 	/**
@@ -136,6 +128,8 @@ class TSuscripcion{
 	*/
 	
 	public function getInicio(){
+		if ($this->inicio == '') return date("Y-m-d");
+		
 		return $this->inicio;
 	}
 	
@@ -162,6 +156,11 @@ class TSuscripcion{
 	*/
 	
 	public function getFin(){
+		if ($this->paquete->getId() == '') return false;
+		
+		if ($this->fin == '')
+		return $this->paquete->getTermina($this->getInicio());
+		
 		return $this->fin;
 	}
 	
@@ -175,14 +174,14 @@ class TSuscripcion{
 	
 	public function guardar(){
 		if ($this->getEmpresa() == '') return false;
-		if ($this->getPaquete() == '') return false;
+		if ($this->paquete->getId() == '') return false;
 		if ($this->getInicio() == '') return false;
 		if ($this->getFin() == '') return false;
 		
 		$db = TBase::conectaDB();
 		
 		if ($this->getId() == ''){
-			$rs = $db->Execute("INSERT INTO suscripcion(idEmpresa, idPaquete, registro) VALUES(".$this->getEmpresa().", ".$this->getPaquete().", now());");
+			$rs = $db->Execute("INSERT INTO suscripcion(idEmpresa, idPaquete, registro) VALUES(".$this->getEmpresa().", ".$this->paquete->getId().", now());");
 			if (!$rs) return false;
 			
 			$this->idSuscripcion = $db->Insert_ID();
@@ -212,7 +211,7 @@ class TSuscripcion{
 		if ($this->getId() == '') return false;
 		
 		$db = TBase::conectaDB();
-		$rs = $db->Execute("delete from publicidad where idPublicidad = ".$this->getId());
+		$rs = $db->Execute("delete from suscripcion where idSuscripcion = ".$this->getId());
 		
 		return $rs?true:false;
 	}

@@ -14,7 +14,8 @@
 						<td>{$row.idEmpresa}</td>
 						<td>{$row.razonsocial}</td>
 						<td style="text-align: right">
-							<a href="usuariosAdmon/{$row.idEmpresa}" class="btn btn-default"><i class="fa fa-users"></i></a>
+							<a href="?mod=suscripciones&val={$row.idEmpresa}" class="btn btn-default"><i class="fa fa-shopping-bag"></i></a>
+							<a href="?mod=usuariosAdmon&val={$row.idEmpresa}" class="btn btn-default"><i class="fa fa-users"></i></a>
 
 							<button type="button" class="btn btn-default" action="modificar" title="Modificar" datos='{$row.json}'><i class="fa fa-pencil"></i></button>
 							<button type="button" class="btn btn-danger" action="eliminar" title="Eliminar" empresa="{$row.idEmpresa}"><i class="fa fa-times"></i></button>

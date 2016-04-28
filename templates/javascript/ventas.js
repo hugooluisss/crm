@@ -7,6 +7,7 @@ $(document).ready(function(){
 		$("#frmAdd")[0].reset();
 		$("#frmAddProductos")[0].reset();
 		$("#frmAdd #id").val("");
+		showDetalle();
 	});
 	
 	showDetalle();
@@ -48,7 +49,7 @@ $(document).ready(function(){
 				var el =  jQuery.parseJSON($(this).attr("producto"));
 				
 				$("#frmAddProductos #txtClave").val(el.clave);
-				$("#frmAddProductos #txtDescripcion").val(el.descripcion);
+				$("#frmAddProductos #txtDescripcion").val(el.nombre);
 				$("#frmAddProductos #txtPrecio").val(el.precio);
 				$("#frmAddProductos #txtCantidad").val(1);
 				$("#winProductos").modal("hide");
@@ -204,11 +205,13 @@ $(document).ready(function(){
 	}
 	
 	function showDetalle(){
-		if($("#frmAdd #id").val() == '')
+		if($("#frmAdd #id").val() == ''){
 			$("#frmAddProductos").hide();
-		else{
+			$("#frmAddProductos").hide();
+			$("#lstMovimiento").hide();
+		}else{
 			$("#frmAddProductos").show();
-			
+			$("#lstMovimiento").show();
 			getListaMovimientos();
 		}
 	}

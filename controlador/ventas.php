@@ -60,7 +60,7 @@ switch($objModulo->getId()){
 				$obj->setClave($_POST['clave']);
 				$obj->setDescripcion($_POST['descripcion']);
 				$obj->setCantidad($_POST['cantidad']);
-				$obj->setPrecio($_POST['precio']);
+				$obj->setPrecio($_POST['precio'] * $_POST['cantidad']);
 				$obj->setDescuento($_POST['descuento']);
 				
 				if ($obj->guardar() == true)
@@ -83,6 +83,24 @@ switch($objModulo->getId()){
 					echo json_encode(array("band" => "true"));
 				else
 					echo json_encode(array("band" => "false"));
+			break;
+			case 'historial':
+				$db = TBase::conectaDB();
+				global $userSesion;
+				
+				$inicio = $_POST['inicio'] == ''?date("Y-m-d", strtotime("-30 days", strtotime(date("Y-m-d")))):$_POST['inicio'];
+				
+				$rs = $db->Execute("select cast(fecha as date) as dia, sum(precio) as total from movventa a join venta b using(idVenta) join cliente c using(idCliente) where idEmpresa = ".$userSesion->empresa->getId()." and fecha >= '".$inicio." 00:00:00' group by dia");
+				$labels = array();
+				$data = array();
+				while(!$rs->EOF){
+					array_push($labels, $rs->fields['dia']);
+					array_push($data, $rs->fields['total']);
+					
+					$rs->moveNext();
+				}
+				
+				echo json_encode(array("etiquetas" => $labels, "cantidades" => $data));
 			break;
 		}
 	break;

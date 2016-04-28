@@ -15,7 +15,7 @@ switch($objModulo->getId()){
 		}
 		$smarty->assign("perfiles", $datos);
 	break;
-	case 'usuarios':
+	case 'usuariosAdmon':
 		$db = TBase::conectaDB();
 		global $userSesion;
 		
@@ -26,12 +26,16 @@ switch($objModulo->getId()){
 			array_push($datos, $rs->fields);
 			$rs->moveNext();
 		}
+		
 		$smarty->assign("perfiles", $datos);
+		$smarty->assign("empresa", new TEmpresa($_GET['val']));
 	break;
 	case 'listaUsuarios':
 		$db = TBase::conectaDB();
 		
-		$rs = $db->Execute("select a.*, b.nombre as perfil from usuario a join perfil b using(idPerfil) where idEmpresa = ".$pageSesion->empresa->getId());
+		$empresa = ($_POST['empresa'] == '')?$pageSesion->empresa->getId():$_POST['empresa'];
+		
+		$rs = $db->Execute("select a.*, b.nombre as perfil from usuario a join perfil b using(idPerfil) where idEmpresa = ".$empresa);
 		$datos = array();
 		while(!$rs->EOF){
 			$rs->fields['json'] = json_encode($rs->fields);
@@ -52,6 +56,9 @@ switch($objModulo->getId()){
 		switch($objModulo->getAction()){
 			case 'add':
 				$obj = new TUsuario($_POST['id']);
+				
+				if ($_POST['empresa'] <> '')
+					$obj->setEmpresa($_POST['empresa']);
 				
 				$obj->setPerfil($_POST['perfil']);
 				$obj->setEmail($_POST['email']);

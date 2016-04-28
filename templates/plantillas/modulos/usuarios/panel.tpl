@@ -4,6 +4,18 @@
 	</div>
 </div>
 
+<div class="row">
+	<div class="col-lg-6">
+		{$empresa->getRazonSocial()}
+	</div>
+	<div class="col-lg-6 text-right">
+		<div class="btn-group">
+			<a href="empresas" class="btn btn-primary">Ir a empresas</a>
+		</div>
+	</div>
+</div>
+
+<br />
 <ul class="nav nav-tabs">
 	<li class="active"><a data-toggle="tab" href="#lista">Registrados</a></li>
 	<li><a data-toggle="tab" href="#add">Agregar o modificar</a></li>
@@ -60,6 +72,7 @@
 			<button type="reset" id="btnReset" class="btn btn-default">Cancelar</button>
 			<button type="submit" class="btn btn-info pull-right">Guardar</button>
 			<input type="hidden" id="id"/>
+			<input type="hidden" id="empresa" value="{$empresa->getId()}"/>
 		</form>
 	</div>
 </div>
