@@ -42,15 +42,29 @@ TVenta = function(){
 	
 	
 	
-	this.del = function(categoria, fn){
+	this.del = function(venta, fn){
 		if (fn.before !== undefined) fn.before();
 		
-		$.post('ccategorias', {
+		$.post('cventas', {
 			"action": "del",
-			"id": categoria,
+			"id": venta,
 		}, function(data){
 			if (data.band == 'false')
-				console.log("Ocurrió un error al eliminar la categoria");
+				console.log("Ocurrió un error al eliminar la venta");
+			
+			if (fn.after !== undefined) fn.after(data);
+		}, "json");
+	};
+	
+	this.delMovimiento = function(movimiento, fn){
+		if (fn.before !== undefined) fn.before();
+		
+		$.post('cventas', {
+			"action": "delMovimiento",
+			"id": movimiento,
+		}, function(data){
+			if (data.band == 'false')
+				console.log("Ocurrió un error al eliminar el artículo");
 			
 			if (fn.after !== undefined) fn.after(data);
 		}, "json");

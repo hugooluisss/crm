@@ -22,8 +22,6 @@ class TMovimiento{
 	* @param int $id identificador del objeto
 	*/
 	public function TMovimiento($id = ''){
-		$this->venta = new TVenta();
-		
 		$this->setId($id);
 		
 		return true;
@@ -82,7 +80,7 @@ class TMovimiento{
 	* @return integer El identificador de la venta
 	*/
 	public function getVenta(){
-		return $this->venta;
+		return $this->idVenta;
 	}
 	
 	/**
@@ -207,7 +205,7 @@ class TMovimiento{
 	* @return integer La cantidad del producto
 	*/
 	public function getDescuento(){
-		return $this->descuento;
+		return $this->descuento == ''?0:$this->descuento;
 	}
 	
 	/**
@@ -218,21 +216,15 @@ class TMovimiento{
 	* @return boolean True si se realizó sin problemas
 	*/
 	public function guardar(){
-		if ($this->cliente->getId() == '') return false;
-		
-		if ($this->usuario->getId() == ''){
-			global $userSesion;
-			$this->setUsuario($userSesion->getId());
-		}
-		
+		if ($this->getVenta() == '') return false;		
 		$db = TBase::conectaDB();
 		
 		if ($this->getId() == ''){
 			$rs = $db->Execute("INSERT INTO movventa(idVenta) VALUES (".$this->getVenta().")");
-			$this->idVenta = $db->Insert_ID();
+			$this->idMovimiento = $db->Insert_ID();
 		}
 		
-		if ($this->idVenta == '') return false;
+		if ($this->idMovimiento == '') return false;
 		
 		$rs = $db->Execute("UPDATE movventa
 			SET
@@ -257,7 +249,7 @@ class TMovimiento{
 		if ($this->getId() == '') return false;
 		
 		$db = TBase::conectaDB();
-		return $db->Execute("delete from venta where idVenta = ".$this->getId())?true:false;
+		return $db->Execute("delete from movventa where idMovimiento = ".$this->getId())?true:false;
 	}
 }
 ?>

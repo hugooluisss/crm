@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-23 01:23:23
+<?php /* Smarty version Smarty-3.1.11, created on 2016-04-27 20:21:51
          compiled from "templates/plantillas/modulos/usuarios/lista.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:126788812571afaa3a3e9b8-03865484%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0792779071f81e2ec50c2a73a57f2de0982f47da' => 
     array (
       0 => 'templates/plantillas/modulos/usuarios/lista.tpl',
-      1 => 1461392601,
+      1 => 1461611294,
       2 => 'file',
     ),
   ),
@@ -52,9 +52,9 @@ $_smarty_tpl->tpl_vars["row"]->_loop = true;
 						<td><?php echo $_smarty_tpl->tpl_vars['row']->value['perfil'];?>
 </td>
 						<td style="text-align: right">
-							<button type="button" class="btn btn-default btn-circle" action="modificar" title="Modificar" datos='<?php echo $_smarty_tpl->tpl_vars['row']->value['json'];?>
+							<button type="button" class="btn btn-default" action="modificar" title="Modificar" datos='<?php echo $_smarty_tpl->tpl_vars['row']->value['json'];?>
 '><i class="fa fa-pencil"></i></button>
-							<button type="button" class="btn btn-danger btn-circle" action="eliminar" title="Eliminar" usuario="<?php echo $_smarty_tpl->tpl_vars['row']->value['idUsuario'];?>
+							<button type="button" class="btn btn-danger" action="eliminar" title="Eliminar" usuario="<?php echo $_smarty_tpl->tpl_vars['row']->value['idUsuario'];?>
 "><i class="fa fa-times"></i></button>
 						</td>
 					</tr>

@@ -25,6 +25,14 @@ switch($objModulo->getId()){
 		}
 		$smarty->assign("lista", $datos);
 	break;
+	case 'perfil':
+		global $userSesion;
+		
+		$db = TBase::conectaDB();
+		$rs = $db->Execute("select a.* from usuario a where idUsuario = ".$userSesion->getId());
+		
+		$smarty->assign("usuario", $rs->fields);
+	break;
 	case 'cusuarios':
 		switch($objModulo->getAction()){
 			case 'add':

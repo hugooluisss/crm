@@ -220,5 +220,52 @@ class TVenta{
 		$db = TBase::conectaDB();
 		return $db->Execute("delete from venta where idVenta = ".$this->getId())?true:false;
 	}
+	
+	/**
+	* Retorna el saldo de la venta
+	*
+	* @autor Hugo
+	* @access public
+	* @return decimal Saldo de la cuenta o venta
+	*/
+	public function getSaldo(){
+		if ($this->getId() == '') return false;
+		
+		return $this->getMontoVenta() - $this->getMontoPagos();
+	}
+	
+	/**
+	* Retorna el total de pagos
+	*
+	* @autor Hugo
+	* @access public
+	* @return decimal Saldo de la cuenta o venta
+	*/
+	public function getMontoPagos(){
+		if ($this->getId() == '') return false;
+		
+		$db = TBase::conectaDB();
+		
+		$rsPagos = $db->Execute("select sum(monto) as monto from pago where idVenta = ".$this->getId());
+		
+		return $rsPagos->fields['monto'];
+	}
+	
+	/**
+	* Retorna el monto total de la venta
+	*
+	* @autor Hugo
+	* @access public
+	* @return decimal Saldo de la cuenta o venta
+	*/
+	public function getMontoVenta(){
+		if ($this->getId() == '') return false;
+		
+		$db = TBase::conectaDB();
+		
+		$rsCompra = $db->Execute("select sum(precio) as monto from movventa where idVenta = ".$this->getId());
+		
+		return $rsCompra->fields['monto'];
+	}
 }
 ?>

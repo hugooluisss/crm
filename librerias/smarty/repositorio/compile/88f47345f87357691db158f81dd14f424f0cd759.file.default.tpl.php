@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-27 10:01:25
+<?php /* Smarty version Smarty-3.1.11, created on 2016-04-27 20:23:37
          compiled from "templates/plantillas/layout/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:143307706257199ad0dc2504-86616377%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88f47345f87357691db158f81dd14f424f0cd759' => 
     array (
       0 => 'templates/plantillas/layout/default.tpl',
-      1 => 1461769283,
+      1 => 1461806614,
       2 => 'file',
     ),
   ),
@@ -93,6 +93,7 @@ plugins/daterangepicker/daterangepicker-bs3.css">
 
 				<!--sidebar nav start-->
 					<ul class="nav nav-pills nav-stacked custom-nav">
+						<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['usuario']->perfil->getId()==1){?>
 						<li class="menu-list">
 							<a href="#"><i class="lnr lnr-cog"></i>
 								<span>Configuracion</span></a>
@@ -109,6 +110,7 @@ plugins/daterangepicker/daterangepicker-bs3.css">
 									<li><a href="productos">Productos</a></li>
 								</ul>
 						</li>
+						<?php }?>
 						<li>
 							<a href="clientes"><i class="fa fa-users" aria-hidden="true"></i>
 								<span>Clientes</span></a>
@@ -155,6 +157,7 @@ plugins/daterangepicker/daterangepicker-bs3.css">
 									</div>	
 								</a>
 								<ul class="dropdown-menu drp-mnu">
+									<li> <a href="perfil"><i class="fa fa-user"></i> Mi Perfil</a> </li>
 									<li> <a href="logout"><i class="fa fa-sign-out"></i> Salir</a> </li>
 								</ul>
 							</li>

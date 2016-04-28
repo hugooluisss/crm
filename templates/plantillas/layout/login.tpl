@@ -62,6 +62,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="{$PAGE.ruta}dist/js/scripts.js"></script>
 	<!-- Bootstrap Core JavaScript -->
 	<script src="{$PAGE.ruta}dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{$PAGE.ruta}plugins/validate/validate.es.js"></script>
 	<script type="text/javascript" src="{$PAGE.ruta}plugins/validate/validate.js"></script>
    
 {foreach from=$PAGE.scriptsJS item=script}

@@ -20,6 +20,6 @@
 	<div class="new_people">
 		<h4>¿Eres nuevo?</h4>
 		<p>No te preocupes, puedes crear una cuenta con nosotros</p>
-		<a href="/registro">Registrate ahora!</a>
+		<a href="registrate">Registrate ahora!</a>
 	</div>
 </div>

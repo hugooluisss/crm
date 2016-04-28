@@ -6,6 +6,8 @@
 					<th>Fecha</th>
 					<th>Cliente</th>
 					<th>No Pagos</th>
+					<th>Monto</th>
+					<th>Saldo</th>
 					<th>&nbsp;</th>
 				</tr>
 			</thead>
@@ -15,9 +17,12 @@
 						<td>{$row.fecha}</td>
 						<td>{$row.nombre}</td>
 						<td>{$row.pagos}</td>
+						<td class="text-right">{$row.monto}</td>
+						<td class="text-right">{$row.saldo}</td>
 						<td style="text-align: right">
+							<button type="button" class="btn btn-success" action="pagos" title="Pagos" venta="{$row.idVenta}"><i class="fa fa-money"></i></button>
 							<button type="button" class="btn btn-default" action="modificar" title="Modificar" datos='{$row.json}'><i class="fa fa-pencil"></i></button>
-							<button type="button" class="btn btn-danger" action="eliminar" title="Eliminar" categoria="{$row.idCategoria}"><i class="fa fa-times"></i></button>
+							<button type="button" class="btn btn-danger" action="eliminar" title="Eliminar" venta="{$row.idVenta}"><i class="fa fa-times"></i></button>
 						</td>
 					</tr>
 				{/foreach}

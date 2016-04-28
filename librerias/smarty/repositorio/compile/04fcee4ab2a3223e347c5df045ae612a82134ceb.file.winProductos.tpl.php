@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-27 09:25:09
+<?php /* Smarty version Smarty-3.1.11, created on 2016-04-27 21:04:35
          compiled from "templates/plantillas/modulos/ventas/winProductos.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1963682027571ff34d044779-76526215%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '04fcee4ab2a3223e347c5df045ae612a82134ceb' => 
     array (
       0 => 'templates/plantillas/modulos/ventas/winProductos.tpl',
-      1 => 1461763864,
+      1 => 1461808973,
       2 => 'file',
     ),
   ),
@@ -30,7 +30,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				
 			</div>
 			<div class="modal-footer">
-				<input type="hidden" id="consultorio" name="consultorio" value="" />
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 			</div>
 		</div>

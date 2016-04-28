@@ -18,6 +18,21 @@ $conf['inicio'] = array(
 	'js' => array('usuario.class.js'),
 	'jsTemplate' => array('login.js'),
 	'capa' => 'layout/login.tpl');
+	
+$conf['registrate'] = array(
+	'controlador' => 'registro.php',
+	'vista' => 'usuarios/registroInicio.tpl',
+	'descripcion' => '',
+	'seguridad' => false,
+	'js' => array(),
+	'jsTemplate' => array('registro.js'),
+	'capa' => 'layout/login.tpl');
+
+$conf['cregistro'] = array(
+	'controlador' => 'registro.php',
+	'descripcion' => 'Registro',
+	'seguridad' => false,
+	'capa' => LAYOUT_AJAX);
 
 $conf['logout'] = array(
 	'controlador' => 'login.php',
@@ -62,6 +77,15 @@ $conf['cusuarios'] = array(
 	'descripcion' => 'Controlador de usuarios',
 	'seguridad' => false,
 	'capa' => LAYOUT_AJAX);
+	
+$conf['perfil'] = array(
+	'controlador' => 'usuarios.php',
+	'vista' => 'usuarios/perfil.tpl',
+	'descripcion' => 'Perfil de usuario',
+	'seguridad' => true,
+	'js' => array('usuario.class.js'),
+	'jsTemplate' => array('perfil.js'),
+	'capa' => LAYOUT_DEFECTO);
 
 /*Mi empresa*/
 $conf['empresa'] = array(
@@ -154,7 +178,7 @@ $conf['ventas'] = array(
 	'vista' => 'ventas/panel.tpl',
 	'descripcion' => 'Administración de ventas',
 	'seguridad' => true,
-	'js' => array('venta.class.js'),
+	'js' => array('venta.class.js', 'pago.class.js'),
 	'jsTemplate' => array('ventas.js'),
 	'capa' => LAYOUT_DEFECTO);
 
@@ -190,4 +214,18 @@ $conf['listaMovimientosVenta'] = array(
 	'vista' => 'ventas/listaMovimientos.tpl',
 	'descripcion' => 'Lista de movimientos',
 	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
+	
+/* Pagos */
+$conf['listaPagos'] = array(
+	'controlador' => 'pagos.php',
+	'vista' => 'pagos/lista.tpl',
+	'descripcion' => 'Lista de pagos',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
+	
+$conf['cpagos'] = array(
+	'controlador' => 'pagos.php',
+	'descripcion' => 'Controlador de pagos',
+	'seguridad' => false,
 	'capa' => LAYOUT_AJAX);

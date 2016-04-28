@@ -6,7 +6,7 @@
 * @autor Hugo Santiago hugooluisss@gmail.com
 **/
 class TEmpresa{
-	private $idEmpresa;
+	public $idEmpresa;
 	private $razonsocial;
 	private $direccion;
 	private $url;
@@ -62,7 +62,9 @@ class TEmpresa{
 			return $this->idEmpresa;
 		else{
 			global $pageSesion;
-			return $pageSesion->empresa->getId();
+			
+			
+			return $pageSesion->empresa->idEmpresa;
 		}
 	}
 	

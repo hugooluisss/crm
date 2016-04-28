@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-27 13:01:25
+<?php /* Smarty version Smarty-3.1.11, created on 2016-04-27 21:27:39
          compiled from "templates/plantillas/modulos/ventas/lista.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1498483102571feaaf549016-23257186%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '79731998ddf826714b60029001476656ec1216cf' => 
     array (
       0 => 'templates/plantillas/modulos/ventas/lista.tpl',
-      1 => 1461780082,
+      1 => 1461810451,
       2 => 'file',
     ),
   ),
@@ -32,6 +32,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<th>Fecha</th>
 					<th>Cliente</th>
 					<th>No Pagos</th>
+					<th>Monto</th>
+					<th>Saldo</th>
 					<th>&nbsp;</th>
 				</tr>
 			</thead>
@@ -48,10 +50,16 @@ $_smarty_tpl->tpl_vars["row"]->_loop = true;
 </td>
 						<td><?php echo $_smarty_tpl->tpl_vars['row']->value['pagos'];?>
 </td>
+						<td class="text-right"><?php echo $_smarty_tpl->tpl_vars['row']->value['monto'];?>
+</td>
+						<td class="text-right"><?php echo $_smarty_tpl->tpl_vars['row']->value['saldo'];?>
+</td>
 						<td style="text-align: right">
+							<button type="button" class="btn btn-success" action="pagos" title="Pagos" venta="<?php echo $_smarty_tpl->tpl_vars['row']->value['idVenta'];?>
+"><i class="fa fa-money"></i></button>
 							<button type="button" class="btn btn-default" action="modificar" title="Modificar" datos='<?php echo $_smarty_tpl->tpl_vars['row']->value['json'];?>
 '><i class="fa fa-pencil"></i></button>
-							<button type="button" class="btn btn-danger" action="eliminar" title="Eliminar" categoria="<?php echo $_smarty_tpl->tpl_vars['row']->value['idCategoria'];?>
+							<button type="button" class="btn btn-danger" action="eliminar" title="Eliminar" venta="<?php echo $_smarty_tpl->tpl_vars['row']->value['idVenta'];?>
 "><i class="fa fa-times"></i></button>
 						</td>
 					</tr>

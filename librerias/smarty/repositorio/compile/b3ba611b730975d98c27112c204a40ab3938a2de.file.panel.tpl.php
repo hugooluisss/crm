@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-27 13:53:39
+<?php /* Smarty version Smarty-3.1.11, created on 2016-04-27 21:04:35
          compiled from "templates/plantillas/modulos/ventas/panel.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1740034097571fe67d4eac95-16823136%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b3ba611b730975d98c27112c204a40ab3938a2de' => 
     array (
       0 => 'templates/plantillas/modulos/ventas/panel.tpl',
-      1 => 1461783217,
+      1 => 1461808989,
       2 => 'file',
     ),
   ),
@@ -104,7 +104,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<div class="col-sm-2">
 					<input type="text" id="txtCantidad" name="txtCantidad" autofocus="true" class="form-control" autocomplete="false" placeholder="Cantidad"/>
 				</div>
-				<label for="txtCantidad" class="col-sm-offset-2 col-sm-2 control-label">Precio</label>
+				<label for="txtCantidad" class="col-sm-offset-2 col-sm-2 control-label">Precio Unitario</label>
 				<div class="col-sm-2">
 					<input type="text" id="txtPrecio" name="txtPrecio" autofocus="true" class="form-control text-right" autocomplete="false" placeholder="Precio"/>
 				</div>
@@ -123,4 +123,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['PAGE']->value['rutaModulos']).("modulos/ventas/winClientes.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 <?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['PAGE']->value['rutaModulos']).("modulos/ventas/winProductos.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
+<?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['PAGE']->value['rutaModulos']).("modulos/pagos/winPagos.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 <?php }} ?>

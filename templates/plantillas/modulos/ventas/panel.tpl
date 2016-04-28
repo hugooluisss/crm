@@ -77,7 +77,7 @@
 				<div class="col-sm-2">
 					<input type="text" id="txtCantidad" name="txtCantidad" autofocus="true" class="form-control" autocomplete="false" placeholder="Cantidad"/>
 				</div>
-				<label for="txtCantidad" class="col-sm-offset-2 col-sm-2 control-label">Precio</label>
+				<label for="txtCantidad" class="col-sm-offset-2 col-sm-2 control-label">Precio Unitario</label>
 				<div class="col-sm-2">
 					<input type="text" id="txtPrecio" name="txtPrecio" autofocus="true" class="form-control text-right" autocomplete="false" placeholder="Precio"/>
 				</div>
@@ -95,3 +95,4 @@
 
 {include file=$PAGE.rutaModulos|cat:"modulos/ventas/winClientes.tpl"}
 {include file=$PAGE.rutaModulos|cat:"modulos/ventas/winProductos.tpl"}
+{include file=$PAGE.rutaModulos|cat:"modulos/pagos/winPagos.tpl"}

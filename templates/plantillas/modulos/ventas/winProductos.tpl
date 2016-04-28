@@ -9,7 +9,6 @@
 				
 			</div>
 			<div class="modal-footer">
-				<input type="hidden" id="consultorio" name="consultorio" value="" />
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 			</div>
 		</div>
