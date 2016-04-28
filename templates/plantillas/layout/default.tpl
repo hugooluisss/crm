@@ -55,7 +55,7 @@
 
 				<!--sidebar nav start-->
 					<ul class="nav nav-pills nav-stacked custom-nav">
-						{if $PAGE.usuario->perfil->getId() eq 1}
+						{if $PAGE.usuario->perfil->getId() eq 1 or $PAGE.usuario->perfil->getId() eq 3}
 						<li class="menu-list">
 							<a href="#"><i class="lnr lnr-cog"></i>
 								<span>Configuracion</span></a>
@@ -84,6 +84,15 @@
 									<li><a href="ventas">Caja</a></li>
 								</ul>
 						</li>
+						{if $PAGE.usuario->perfil->getId() eq 3}
+						<li class="menu-list">
+							<a href="#"><i class="fa fa-desktop"></i>
+								<span>Administración</span></a>
+								<ul class="sub-menu-list">
+									<li><a href="empresas">Empresas</a></li>
+								</ul>
+						</li>
+						{/if}
 					</ul>
 				<!--sidebar nav end-->
 			</div>

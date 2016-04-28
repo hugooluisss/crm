@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-27 20:23:37
+<?php /* Smarty version Smarty-3.1.11, created on 2016-04-28 08:59:42
          compiled from "templates/plantillas/layout/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:143307706257199ad0dc2504-86616377%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88f47345f87357691db158f81dd14f424f0cd759' => 
     array (
       0 => 'templates/plantillas/layout/default.tpl',
-      1 => 1461806614,
+      1 => 1461851980,
       2 => 'file',
     ),
   ),
@@ -93,7 +93,7 @@ plugins/daterangepicker/daterangepicker-bs3.css">
 
 				<!--sidebar nav start-->
 					<ul class="nav nav-pills nav-stacked custom-nav">
-						<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['usuario']->perfil->getId()==1){?>
+						<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['usuario']->perfil->getId()==1||$_smarty_tpl->tpl_vars['PAGE']->value['usuario']->perfil->getId()==3){?>
 						<li class="menu-list">
 							<a href="#"><i class="lnr lnr-cog"></i>
 								<span>Configuracion</span></a>
@@ -122,6 +122,15 @@ plugins/daterangepicker/daterangepicker-bs3.css">
 									<li><a href="ventas">Caja</a></li>
 								</ul>
 						</li>
+						<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['usuario']->perfil->getId()==3){?>
+						<li class="menu-list">
+							<a href="#"><i class="fa fa-desktop"></i>
+								<span>Administración</span></a>
+								<ul class="sub-menu-list">
+									<li><a href="empresas">Empresas</a></li>
+								</ul>
+						</li>
+						<?php }?>
 					</ul>
 				<!--sidebar nav end-->
 			</div>

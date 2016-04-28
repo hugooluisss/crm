@@ -4,7 +4,22 @@ global $objModulo;
 switch($objModulo->getId()){
 	case 'usuarios':
 		$db = TBase::conectaDB();
-		$rs = $db->Execute("select a.* from perfil a");
+		global $userSesion;
+		
+		$rs = $db->Execute("select a.* from perfil a where publico like '".($userSesion->perfil->getId() == 3?"%":"S")."'");
+		$datos = array();
+		while(!$rs->EOF){
+			$rs->fields['json'] = json_encode($rs->fields);
+			array_push($datos, $rs->fields);
+			$rs->moveNext();
+		}
+		$smarty->assign("perfiles", $datos);
+	break;
+	case 'usuarios':
+		$db = TBase::conectaDB();
+		global $userSesion;
+		
+		$rs = $db->Execute("select a.* from perfil a where publico like 'S'");
 		$datos = array();
 		while(!$rs->EOF){
 			$rs->fields['json'] = json_encode($rs->fields);

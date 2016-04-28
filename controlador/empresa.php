@@ -10,6 +10,20 @@ switch($objModulo->getId()){
 		
 		$smarty->assign("datos", $rs->fields);
 	break;
+	case 'listaEmpresas':
+		$db = TBase::conectaDB();
+		global $userSesion;
+		$rs = $db->Execute("select * from empresa");
+		$datos = array();
+		while(!$rs->EOF){
+			$rs->fields['json']	= json_encode($rs->fields);
+			array_push($datos, $rs->fields);
+			
+			$rs->moveNext();
+		}
+
+		$smarty->assign("lista", $datos);
+	break;
 	case 'cempresa':
 		switch($objModulo->getAction()){
 			case 'guardar':
@@ -25,6 +39,15 @@ switch($objModulo->getId()){
 				else
 					echo json_encode(array("band" => false));
 			break;
+			case 'del':
+				$obj = new TEmpresa($_POST['id']);
+				
+				if ($obj->eliminar())
+					echo json_encode(array("band" => "true"));
+				else
+					echo json_encode(array("band" => "false"));
+			break;
+
 		}
 	break;
 }

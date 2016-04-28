@@ -229,3 +229,30 @@ $conf['cpagos'] = array(
 	'descripcion' => 'Controlador de pagos',
 	'seguridad' => false,
 	'capa' => LAYOUT_AJAX);
+	
+/*Empresas*/
+$conf['empresas'] = array(
+	'controlador' => 'empresa.php',
+	'vista' => 'empresa/empresas.tpl',
+	'descripcion' => 'Administración de empresas',
+	'seguridad' => true,
+	'js' => array('empresa.class.js'),
+	'jsTemplate' => array('administracion.js'),
+	'capa' => LAYOUT_DEFECTO);
+
+$conf['listaEmpresas'] = array(
+	'controlador' => 'empresa.php',
+	'vista' => 'empresa/listaEmpresas.tpl',
+	'descripcion' => 'Lista de empresas',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
+	
+/*Usuarios Administracion*/
+$conf['usuariosAdmon'] = array(
+	'controlador' => 'usuarios.php',
+	'vista' => 'usuarios/panel.tpl',
+	'descripcion' => 'Administración de usuarios',
+	'seguridad' => true,
+	'js' => array('usuario.class.js'),
+	'jsTemplate' => array('usuarios.js'),
+	'capa' => LAYOUT_DEFECTO);
