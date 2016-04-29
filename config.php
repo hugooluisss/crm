@@ -258,7 +258,7 @@ $conf['usuariosAdmon'] = array(
 	'jsTemplate' => array('usuarios.js'),
 	'capa' => LAYOUT_DEFECTO);
 	
-/*Categorias*/
+/* Suscripciones */
 $conf['suscripciones'] = array(
 	'controlador' => 'suscripciones.php',
 	'vista' => 'suscripciones/panel.tpl',
@@ -267,6 +267,15 @@ $conf['suscripciones'] = array(
 	'js' => array('suscripcion.class.js'),
 	'jsTemplate' => array('suscripciones.js'),
 	'capa' => LAYOUT_DEFECTO);
+	
+$conf['planes'] = array(
+	'controlador' => 'suscripciones.php',
+	'vista' => 'usuarios/planes.tpl',
+	'descripcion' => 'Compra de suscripción',
+	'seguridad' => false,
+	'js' => array('suscripcion.class.js'),
+	'jsTemplate' => array('suscripciones.js'),
+	'capa' => 'layout/login.tpl');
 
 $conf['listaSuscripciones'] = array(
 	'controlador' => 'suscripciones.php',
@@ -280,3 +289,12 @@ $conf['csuscripciones'] = array(
 	'descripcion' => 'Controlador de suscripciones',
 	'seguridad' => false,
 	'capa' => LAYOUT_AJAX);
+	
+/* Pedidos */
+$conf['pedidos'] = array(
+	'controlador' => 'pedidos.php',
+	'vista' => 'pedidos/panel.tpl',
+	'descripcion' => 'Administración de pedidos',
+	'seguridad' => true,
+	'jsTemplate' => array('pedidos.js'),
+	'capa' => LAYOUT_DEFECTO);

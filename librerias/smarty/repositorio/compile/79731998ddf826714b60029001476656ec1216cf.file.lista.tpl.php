@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-28 08:56:06
+<?php /* Smarty version Smarty-3.1.11, created on 2016-04-28 22:35:10
          compiled from "templates/plantillas/modulos/ventas/lista.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1498483102571feaaf549016-23257186%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '79731998ddf826714b60029001476656ec1216cf' => 
     array (
       0 => 'templates/plantillas/modulos/ventas/lista.tpl',
-      1 => 1461849259,
+      1 => 1461900856,
       2 => 'file',
     ),
   ),
@@ -34,6 +34,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<th>No Pagos</th>
 					<th>Monto</th>
 					<th>Saldo</th>
+					<th>¿Entregados?</th>
 					<th>&nbsp;</th>
 				</tr>
 			</thead>
@@ -54,6 +55,13 @@ $_smarty_tpl->tpl_vars["row"]->_loop = true;
 </td>
 						<td class="text-right"><?php echo $_smarty_tpl->tpl_vars['row']->value['saldo'];?>
 </td>
+						<td class="text-right">
+							<select class="entregados form-control" venta="<?php echo $_smarty_tpl->tpl_vars['row']->value['idVenta'];?>
+">
+								<option value="1" <?php if ($_smarty_tpl->tpl_vars['row']->value['entregados']==1){?>selected<?php }?>>Si</option>
+								<option value="0" <?php if ($_smarty_tpl->tpl_vars['row']->value['entregados']==0){?>selected<?php }?>>No</option>
+							</select>
+						</td>
 						<td style="text-align: right">
 							<button type="button" class="btn btn-success" action="pagos" title="Pagos" venta="<?php echo $_smarty_tpl->tpl_vars['row']->value['idVenta'];?>
 "><i class="fa fa-money"></i></button>

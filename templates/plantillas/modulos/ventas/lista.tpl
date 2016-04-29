@@ -8,6 +8,7 @@
 					<th>No Pagos</th>
 					<th>Monto</th>
 					<th>Saldo</th>
+					<th>¿Entregados?</th>
 					<th>&nbsp;</th>
 				</tr>
 			</thead>
@@ -19,6 +20,12 @@
 						<td>{$row.pagos}</td>
 						<td class="text-right">{$row.monto}</td>
 						<td class="text-right">{$row.saldo}</td>
+						<td class="text-right">
+							<select class="entregados form-control" venta="{$row.idVenta}">
+								<option value="1" {if $row.entregados eq 1}selected{/if}>Si</option>
+								<option value="0" {if $row.entregados eq 0}selected{/if}>No</option>
+							</select>
+						</td>
 						<td style="text-align: right">
 							<button type="button" class="btn btn-success" action="pagos" title="Pagos" venta="{$row.idVenta}"><i class="fa fa-money"></i></button>
 							<button type="button" class="btn btn-default" action="modificar" title="Modificar" datos='{$row.json}'><i class="fa fa-pencil"></i></button>

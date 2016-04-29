@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-28 10:01:56
+<?php /* Smarty version Smarty-3.1.11, created on 2016-04-28 23:32:40
          compiled from "templates/plantillas/layout/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:143307706257199ad0dc2504-86616377%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88f47345f87357691db158f81dd14f424f0cd759' => 
     array (
       0 => 'templates/plantillas/layout/default.tpl',
-      1 => 1461855694,
+      1 => 1461904349,
       2 => 'file',
     ),
   ),
@@ -50,6 +50,7 @@ dist/css/icon-font.min.css" type='text/css' />
 <!-- chart -->
 <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 dist/js/Chart.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <!-- //chart -->
 <!--animate-->
 <link href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
@@ -120,6 +121,7 @@ plugins/daterangepicker/daterangepicker-bs3.css">
 								<span>Ventas</span></a>
 								<ul class="sub-menu-list">
 									<li><a href="ventas">Caja</a></li>
+									<li><a href="pedidos">Pedidos</a></li>
 								</ul>
 						</li>
 						<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['usuario']->perfil->getId()==3){?>
@@ -224,8 +226,8 @@ plugins/datepicker/bootstrap-datepicker.js"></script>
 plugins/datepicker/locales/bootstrap-datepicker.es.js"></script>
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 plugins/datepicker/datepicker3.css" />
-
-   
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/minicart/3.0.6/minicart.min.js"></script>
 
 <?php  $_smarty_tpl->tpl_vars['script'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['script']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['PAGE']->value['scriptsJS']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

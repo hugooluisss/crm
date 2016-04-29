@@ -178,6 +178,23 @@ $(document).ready(function(){
 				listaPagos($(this).attr("venta"));
 			});
 			
+			$("#dvLista .entregados").change(function(){
+				var el = $(this);
+				var venta = new TVenta;
+				
+				venta.changeEntregado(el.attr("venta"), el.val(), {
+					before: function(){
+						el.prop("disabled", true);
+					},
+					after: function(resp){
+						el.prop("disabled", false);
+						
+						if (resp.band == "false")
+							alert("No se pudo actualizar el estado del pedido");
+					}
+				});
+			});
+			
 			$("#dvLista [action=eliminar]").click(function(){
 				if(confirm("¿Seguro?")){
 					var obj = new TVenta ;

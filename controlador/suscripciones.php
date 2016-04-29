@@ -31,6 +31,17 @@ switch($objModulo->getId()){
 		}
 		$smarty->assign("lista", $datos);
 	break;
+	case 'planes':
+		$db = TBase::conectaDB();
+		
+		$rs = $db->Execute("select * from paquete where publico = 'S'");
+		$datos = array();
+		while(!$rs->EOF){
+			array_push($datos, $rs->fields);
+			$rs->moveNext();
+		}
+		$smarty->assign("lista", $datos);
+	break;
 	case 'csuscripciones':
 		switch($objModulo->getAction()){
 			case 'guardar':

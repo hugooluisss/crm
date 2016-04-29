@@ -20,6 +20,11 @@
 	<div class="new_people">
 		<h4>¿Eres nuevo?</h4>
 		<p>No te preocupes, puedes crear una cuenta con nosotros</p>
-		<a href="registrate">Registrate ahora!</a>
+		<a href="registrate">¡Registrate ahora!</a>
+	</div>
+	<div class="new_people">
+		<h4>¿Se acabó tu suscripción?</h4>
+		<p>No te preocupes, consulta nuestros planes</p>
+		<a href="planes">Planes de suscripción!</a>
 	</div>
 </div>

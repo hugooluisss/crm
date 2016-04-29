@@ -129,8 +129,8 @@ class TVenta{
 	* @access public
 	* @return boolean True si se realizó sin problemas
 	*/
-	public function setEntregados(){
-		$this->entregados = 1;
+	public function setEntregados($val = 0){
+		$this->entregados = $val;
 		
 		return true;
 	}
@@ -189,7 +189,7 @@ class TVenta{
 		$db = TBase::conectaDB();
 		
 		if ($this->getId() == ''){
-			$rs = $db->Execute("INSERT INTO venta(idUsuario, idCliente) VALUES (".$this->usuario->getId().", ".$this->cliente->getId().")");
+			$rs = $db->Execute("INSERT INTO venta(idUsuario, idCliente, fecha) VALUES (".$this->usuario->getId().", ".$this->cliente->getId().", now())");
 			
 			$this->idVenta = $db->Insert_ID();
 		}
@@ -199,7 +199,7 @@ class TVenta{
 		$rs = $db->Execute("UPDATE venta
 			SET
 				idCliente = ".$this->cliente->getId().",
-				fecha = now(),
+				fecha = '".$this->getFecha()."',
 				pagos = ".$this->getPagos().",
 				entregados = ".($this->getEntregados()?1:0)."
 			WHERE idVenta = ".$this->getId());

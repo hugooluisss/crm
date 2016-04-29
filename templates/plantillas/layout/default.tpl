@@ -18,6 +18,7 @@
 <!-- //lined-icons -->
 <!-- chart -->
 <script src="{$PAGE.ruta}dist/js/Chart.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <!-- //chart -->
 <!--animate-->
 <link href="{$PAGE.ruta}dist/css/animate.css" rel="stylesheet" type="text/css" media="all">
@@ -82,6 +83,7 @@
 								<span>Ventas</span></a>
 								<ul class="sub-menu-list">
 									<li><a href="ventas">Caja</a></li>
+									<li><a href="pedidos">Pedidos</a></li>
 								</ul>
 						</li>
 						{if $PAGE.usuario->perfil->getId() eq 3}
@@ -169,8 +171,8 @@
     <script type="text/javascript" src="{$PAGE.ruta}plugins/datepicker/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="{$PAGE.ruta}plugins/datepicker/locales/bootstrap-datepicker.es.js"></script>
     <link rel="stylesheet" href="{$PAGE.ruta}plugins/datepicker/datepicker3.css" />
-
-   
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/minicart/3.0.6/minicart.min.js"></script>
 
 {foreach from=$PAGE.scriptsJS item=script}
 	<script type="text/javascript" src="{$script}"></script>

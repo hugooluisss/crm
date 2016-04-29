@@ -2,24 +2,27 @@ $(document).ready(function(){
 	var objVenta = new TVenta;
 	objVenta.getHistorial("",{
 		after: function(result){
-			var barChartData = {
-				labels: result.etiquetas,
-				datasets: [
-					{
-						label: "Ventas",
-						backgroundColor: "rgba(255,99,132,0.2)",
-						borderColor: "rgba(255,99,132,1)",
-						borderWidth: 1,
-						hoverBackgroundColor: "rgba(255,99,132,0.4)",
-						hoverBorderColor: "rgba(255,99,132,1)",
-						data: JSON.stringify(result.cantidades)
-					}
-				]
-			}
+			var datos = new Array();
+			datos = [["Dia", "Ventas totales"]];
 			
-			new Chart($("#cnvVentas").get(0).getContext("2d"), {
-				type: "bar",
-				data: barChartData
+			$.each(result, function(i, v){
+				datos.push(new Array(v.dia, parseFloat(v.total)));
+			});
+			
+			console.log(datos);
+		
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(function(){
+				var data = google.visualization.arrayToDataTable(datos);
+
+				var options = {
+					title: '',
+					hAxis: {title: 'Dia',  titleTextStyle: {color: '#333'}},
+					vAxis: {minValue: 0}
+				};
+
+				var chart = new google.visualization.AreaChart($('#chart_div')[0]);
+				chart.draw(data, options);
 			});
 		}
 	});

@@ -40,7 +40,20 @@ TVenta = function(){
 		);
 	};
 	
-	
+	this.changeEntregado = function(id, valor, fn){
+		if (fn.before !== undefined) fn.before();
+		
+		$.post('cventas', {
+			"action": "setEntregado",
+			"id": id,
+			"estado": valor
+		}, function(data){
+			if (data.band == false)
+				console.log("Ocurrió un error al actualizar el estado de la venta");
+			
+			if (fn.after !== undefined) fn.after(data);
+		}, "json");
+	};
 	
 	this.del = function(venta, fn){
 		if (fn.before !== undefined) fn.before();
