@@ -184,4 +184,21 @@ class TEmpresa{
 		
 		return $rs?true:false;
 	}
+	
+	/**
+	* Indica si la empresa esta suscripta
+	*
+	* @autor Hugo
+	* @access public
+	* @return boolean True Si es que si lo está
+	*/
+	
+	public function isSuscripto(){
+		if ($this->getId() == '') return false;
+		
+		$db = TBase::conectaDB();
+		$rs = $db->Execute("select * from suscripcion where idEmpresa = ".$this->getId()." and now() between inicio and fin");
+		
+		return !$rs->EOF?true:false;
+	}
 }

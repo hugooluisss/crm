@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="{$PAGE.ruta}dist/css/icon-font.min.css" type='text/css' />
 <!-- //lined-icons -->
 <!-- chart -->
-<script src="{$PAGE.ruta}dist/js/Chart.js"></script>
+<!--<script src="{$PAGE.ruta}dist/js/Chart.js"></script>-->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <!-- //chart -->
 <!--animate-->
@@ -48,7 +48,7 @@
 				<h1><a href="panelPrincipal">{$PAGE.empresaAcronimo}</a></h1>
 			</div>
 			<div class="logo-icon text-center">
-				<a href="panelPrincipal"><i class="lnr lnr-home"></i> </a>
+				<a href="panelPrincipal"><i class="fa fa-home"></i> </a>
 			</div>
 
 			<!--logo and iconic logo end-->
@@ -58,7 +58,7 @@
 					<ul class="nav nav-pills nav-stacked custom-nav">
 						{if $PAGE.usuario->perfil->getId() eq 1 or $PAGE.usuario->perfil->getId() eq 3}
 						<li class="menu-list">
-							<a href="#"><i class="lnr lnr-cog"></i>
+							<a href="#"><i class="fa fa-cog"></i>
 								<span>Configuracion</span></a>
 								<ul class="sub-menu-list">
 									<li><a href="empresa">Mi empresa</a></li>
@@ -172,7 +172,7 @@
     <script type="text/javascript" src="{$PAGE.ruta}plugins/datepicker/locales/bootstrap-datepicker.es.js"></script>
     <link rel="stylesheet" href="{$PAGE.ruta}plugins/datepicker/datepicker3.css" />
     
-    <script src="//cdnjs.cloudflare.com/ajax/libs/minicart/3.0.6/minicart.min.js"></script>
+    <script type="text/javascript" src="{$PAGE.ruta}javascript/panel.js"></script>
 
 {foreach from=$PAGE.scriptsJS item=script}
 	<script type="text/javascript" src="{$script}"></script>

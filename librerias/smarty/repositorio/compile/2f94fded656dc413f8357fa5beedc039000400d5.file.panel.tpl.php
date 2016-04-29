@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-28 23:20:28
+<?php /* Smarty version Smarty-3.1.11, created on 2016-04-29 09:03:39
          compiled from "templates/plantillas/modulos/pedidos/panel.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:11138470015722e0d0279921-59801053%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2f94fded656dc413f8357fa5beedc039000400d5' => 
     array (
       0 => 'templates/plantillas/modulos/pedidos/panel.tpl',
-      1 => 1461903627,
+      1 => 1461937729,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5722e0d030cb09_06204249')) {function content_5722e0d030cb09_06204249($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5722e0d030cb09_06204249')) {function content_5722e0d030cb09_06204249($_smarty_tpl) {?><div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">Pedidos</h1>
+	</div>
+</div>
+
 <div class="panel">
 	<div class="panel-body">
 		<table id="tblPedidos" class="table table-bordered table-hover">

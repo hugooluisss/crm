@@ -12,6 +12,7 @@ class TSuscripcion{
 	private $registro;
 	private $inicio;
 	private $fin;
+	private $codigo;
 	
 	/**
 	* Constructor de la clase
@@ -165,6 +166,32 @@ class TSuscripcion{
 	}
 	
 	/**
+	* Establece el codigo de la compra
+	*
+	* @autor Hugo
+	* @access public
+	* @param date $val Valor a asignar
+	* @return boolean True si se realizó sin problemas
+	*/
+	
+	public function setCodigo($val = ''){
+		$this->codigo = $val;
+		return true;
+	}
+	
+	/**
+	* Retorna el código de la compra
+	*
+	* @autor Hugo
+	* @access public
+	* @return date Fecha
+	*/
+	
+	public function getCodigo(){
+		return $this->codigo;
+	}
+	
+	/**
 	* Guarda los datos en la base de datos, si no existe un identificador entonces crea el objeto
 	*
 	* @autor Hugo
@@ -193,7 +220,8 @@ class TSuscripcion{
 		$rs = $db->Execute("UPDATE suscripcion
 			SET
 				inicio = '".$this->getInicio()."',
-				fin = '".$this->getFin()."'
+				fin = '".$this->getFin()."',
+				codigo = '".$this->getCodigo()."'
 			WHERE idSuscripcion = ".$this->getId());
 			
 		return $rs?true:false;

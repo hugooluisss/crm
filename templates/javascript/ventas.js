@@ -261,6 +261,8 @@ $(document).ready(function(){
 				"autoWidth": true
 			});
 		});
+		
+		getLista();
 	}
 	
 	$("#frmAddPago").validate({

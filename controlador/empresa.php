@@ -39,6 +39,14 @@ switch($objModulo->getId()){
 				else
 					echo json_encode(array("band" => false));
 			break;
+			case 'getSuscripcion':
+				global $userSesion;
+				
+				if ($userSesion->empresa->isSuscripto())
+					echo json_encode(array("band" => "true"));
+				else
+					echo json_encode(array("band" => "false"));
+			break;
 			case 'del':
 				$obj = new TEmpresa($_POST['id']);
 				

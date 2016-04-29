@@ -16,5 +16,31 @@ switch($objModulo->getId()){
 
 		$smarty->assign("lista", $datos);
 	break;
+	case 'success':
+		$db = TBase::conectaDB();
+		
+		$rs = $db->Execute("select * from suscripcion where codigo = '".$_GET['codigo']."'");
+		
+		if ($rs->EOF){
+			$codigo = base64_decode($_GET['codigo']);
+			$codigo = explode("|.|", $codigo);
+			
+			$suscripcion = new TSuscripcion;
+			/*
+			* 0: paquete
+			* 1: empresa
+			* 2: fecha
+			*/
+			$suscripcion->setEmpresa($codigo[1]);
+			$suscripcion->setPaquete($codigo[0]);
+			$suscripcion->setInicio(date("Y-m-d"));
+			$suscripcion->setCodigo($_GET['codigo']);
+			
+			if ($suscripcion->guardar())
+				echo '<script>location.href = "logout";</script>';
+		}
+		
+		echo 'Ocurrió un error al guardar su suscripción';
+	break;
 };
 ?>

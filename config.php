@@ -273,8 +273,7 @@ $conf['planes'] = array(
 	'vista' => 'usuarios/planes.tpl',
 	'descripcion' => 'Compra de suscripción',
 	'seguridad' => false,
-	'js' => array('suscripcion.class.js'),
-	'jsTemplate' => array('suscripciones.js'),
+	'jsTemplate' => array('planes.js'),
 	'capa' => 'layout/login.tpl');
 
 $conf['listaSuscripciones'] = array(
@@ -298,3 +297,11 @@ $conf['pedidos'] = array(
 	'seguridad' => true,
 	'jsTemplate' => array('pedidos.js'),
 	'capa' => LAYOUT_DEFECTO);
+	
+$conf['success'] = array(
+	'controlador' => 'pedidos.php',
+	'vista' => 'usuarios/compraOk.tpl',
+	'descripcion' => 'Despues de realizar una compra',
+	'seguridad' => true,
+	#'jsTemplate' => array('pedidos.js'),
+	'capa' => 'layout/login.tpl');

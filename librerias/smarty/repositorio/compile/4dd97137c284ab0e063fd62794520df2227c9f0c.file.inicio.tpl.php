@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-28 23:41:50
+<?php /* Smarty version Smarty-3.1.11, created on 2016-04-29 08:57:22
          compiled from "templates/plantillas/modulos/inicio.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:99655443357199ad1110de4-06602645%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4dd97137c284ab0e063fd62794520df2227c9f0c' => 
     array (
       0 => 'templates/plantillas/modulos/inicio.tpl',
-      1 => 1461904909,
+      1 => 1461937729,
       2 => 'file',
     ),
   ),
@@ -93,20 +93,4 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			</div>
 		</div>
 	</div>
-</div>
-
-<form method="post" action="https://www.paypal.com/cgi-bin/webscr">
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="add" value="1">
-<input type="hidden" name="business" value="">
-<input type="hidden" name="item_name" value="Baseball Hat">
-<input type="hidden" name="item_number" value="123">
-<input type="hidden" name="amount" value="5.95">
-<input type="hidden" name="shipping" value="1.00">
-<input type="hidden" name="shipping2" value="0.50">
-<input type="hidden" name="handling" value="2.00 ">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="return" value="">
-<input type="hidden" name="undefined_quantity" value="1">
-<input type="image" src="http://www.paypalobjects.com/es_XC/i/btn/x-click-but22.gif" border="0" name="submit" width="87" height="23" alt="Realice pagos con PayPal: es rápido, gratis y seguro.">
-</form><?php }} ?>
+</div><?php }} ?>
