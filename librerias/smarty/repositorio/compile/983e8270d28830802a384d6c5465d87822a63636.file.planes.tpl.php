@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-29 13:18:23
+<?php /* Smarty version Smarty-3.1.11, created on 2016-05-02 10:15:19
          compiled from "templates/plantillas/modulos/usuarios/planes.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14938808065722e81edbe1f1-14177347%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '983e8270d28830802a384d6c5465d87822a63636' => 
     array (
       0 => 'templates/plantillas/modulos/usuarios/planes.tpl',
-      1 => 1461953899,
+      1 => 1462202115,
       2 => 'file',
     ),
   ),
@@ -52,10 +52,11 @@ $_smarty_tpl->tpl_vars["row"]->_loop = true;
 </p>
 					
 					<div class="container text-right" target="paypal">
-						<form method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
+						<form method="post" action="https://www.paypal.com/cgi-bin/webscr">
 							<input type="hidden" name="cmd" value="_xclick">
 							<input type="hidden" name="add" value="1">
-							<input type="hidden" name="business" value="hugooluisss-facilitator@hotmail.com">
+							<input type="hidden" name="business" value="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ini']['paypal']['email'];?>
+">
 							<input type="hidden" name="item_name" value="<?php echo $_smarty_tpl->tpl_vars['row']->value['nombre'];?>
  - <?php echo $_smarty_tpl->tpl_vars['PAGE']->value['usuario']->empresa->getId();?>
 ">
@@ -68,7 +69,8 @@ $_smarty_tpl->tpl_vars["row"]->_loop = true;
 							<input type="hidden" name="handling" value="0 ">
 							<input type="hidden" name="currency_code" value="MXN">
 							<input type="hidden" name="undefined_quantity" value="1">
-							<input type="hidden" name="return" value="http://localhost/crm/?mod=success&codigo=<?php echo base64_encode((((($_smarty_tpl->tpl_vars['row']->value['idPaquete']).('|.|')).($_smarty_tpl->tpl_vars['PAGE']->value['usuario']->empresa->getId())).('|.|')).(date("Y-m-d H:i:s")));?>
+							<input type="hidden" name="return" value="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ini']['sistema']['urlsistema'];?>
+?mod=success&codigo=<?php echo base64_encode((((($_smarty_tpl->tpl_vars['row']->value['idPaquete']).('|.|')).($_smarty_tpl->tpl_vars['PAGE']->value['usuario']->empresa->getId())).('|.|')).(date("Y-m-d H:i:s")));?>
 " />
 							<input type="submit" name="submit" value="Comprar ahora" class="btn btn-primary" />
 						</form>

@@ -122,8 +122,7 @@
 										 <div class="user-name">
 											<p>{$PAGE.usuario->getNombre()}<span>{$PAGE.usuario->perfil->getNombre()}</span></p>
 										 </div>
-										 <i class="lnr lnr-chevron-down"></i>
-										 <i class="lnr lnr-chevron-up"></i>
+										 <i class="fa fa-chevron-down"></i>
 										<div class="clearfix"></div>	
 									</div>	
 								</a>

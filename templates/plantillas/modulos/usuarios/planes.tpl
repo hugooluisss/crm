@@ -18,10 +18,10 @@
 					<p>{$row.descripcion}</p>
 					
 					<div class="container text-right" target="paypal">
-						<form method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
+						<form method="post" action="https://www.paypal.com/cgi-bin/webscr">
 							<input type="hidden" name="cmd" value="_xclick">
 							<input type="hidden" name="add" value="1">
-							<input type="hidden" name="business" value="hugooluisss-facilitator@hotmail.com">
+							<input type="hidden" name="business" value="{$PAGE.ini.paypal.email}">
 							<input type="hidden" name="item_name" value="{$row.nombre} - {$PAGE.usuario->empresa->getId()}">
 							<input type="hidden" name="item_number" value="{$row.idPaquete}">
 							<input type="hidden" name="amount" value="{$row.precio}">
@@ -30,7 +30,7 @@
 							<input type="hidden" name="handling" value="0 ">
 							<input type="hidden" name="currency_code" value="MXN">
 							<input type="hidden" name="undefined_quantity" value="1">
-							<input type="hidden" name="return" value="http://localhost/crm/?mod=success&codigo={base64_encode($row.idPaquete|cat:'|.|'|cat:$PAGE.usuario->empresa->getId()|cat:'|.|'|cat:date("Y-m-d H:i:s"))}" />
+							<input type="hidden" name="return" value="{$PAGE.ini.sistema.urlsistema}?mod=success&codigo={base64_encode($row.idPaquete|cat:'|.|'|cat:$PAGE.usuario->empresa->getId()|cat:'|.|'|cat:date("Y-m-d H:i:s"))}" />
 							<input type="submit" name="submit" value="Comprar ahora" class="btn btn-primary" />
 						</form>
 					</div>

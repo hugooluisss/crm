@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-29 11:25:02
+<?php /* Smarty version Smarty-3.1.11, created on 2016-05-02 10:13:27
          compiled from "templates/plantillas/layout/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:143307706257199ad0dc2504-86616377%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88f47345f87357691db158f81dd14f424f0cd759' => 
     array (
       0 => 'templates/plantillas/layout/default.tpl',
-      1 => 1461947095,
+      1 => 1462202004,
       2 => 'file',
     ),
   ),
@@ -162,8 +162,7 @@ plugins/daterangepicker/daterangepicker-bs3.css">
 <span><?php echo $_smarty_tpl->tpl_vars['PAGE']->value['usuario']->perfil->getNombre();?>
 </span></p>
 										 </div>
-										 <i class="lnr lnr-chevron-down"></i>
-										 <i class="lnr lnr-chevron-up"></i>
+										 <i class="fa fa-chevron-down"></i>
 										<div class="clearfix"></div>	
 									</div>	
 								</a>

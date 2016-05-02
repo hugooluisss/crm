@@ -1,5 +1,5 @@
 <?php
-define('SISTEMA', 'CRM');
+define('SISTEMA', 'CVentas');
 define('VERSION', 'v 1.0');
 define('ALIAS', '');
 define('AUTOR', 'Hugo Luis Santiago Altamirano');

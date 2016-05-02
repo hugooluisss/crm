@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-29 11:16:52
+<?php /* Smarty version Smarty-3.1.11, created on 2016-05-02 09:56:37
          compiled from "templates/plantillas/modulos/usuarios/login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13385516475719a5467f0a78-48444484%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8025d1efad6d7fcf5a6ea976d0e9a6e0c875d9de' => 
     array (
       0 => 'templates/plantillas/modulos/usuarios/login.tpl',
-      1 => 1461946611,
+      1 => 1462200994,
       2 => 'file',
     ),
   ),
@@ -25,8 +25,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5719a546825463_85204172')) {function content_5719a546825463_85204172($_smarty_tpl) {?><div class="sign-in-form">
 	<div class="sign-in-form-top">
-		<p><span><?php echo $_smarty_tpl->tpl_vars['PAGE']->value['empresaAcronimo'];?>
-</span> <a href="index.php">Admin</a></p>
+		<p><span><?php echo $_smarty_tpl->tpl_vars['PAGE']->value['nombreAplicacion'];?>
+</span> <a href="index.php"> - <?php echo $_smarty_tpl->tpl_vars['PAGE']->value['empresaAcronimo'];?>
+</a></p>
 	</div>
 	<div class="signin">
 		<form onsubmit="javascript: return false;" id="frmLogin">

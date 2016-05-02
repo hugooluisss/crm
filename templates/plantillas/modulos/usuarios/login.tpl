@@ -1,6 +1,6 @@
 <div class="sign-in-form">
 	<div class="sign-in-form-top">
-		<p><span>{$PAGE.empresaAcronimo}</span> <a href="index.php">Admin</a></p>
+		<p><span>{$PAGE.nombreAplicacion}</span> <a href="index.php"> - {$PAGE.empresaAcronimo}</a></p>
 	</div>
 	<div class="signin">
 		<form onsubmit="javascript: return false;" id="frmLogin">
