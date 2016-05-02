@@ -18,6 +18,15 @@ switch($objModulo->getId()){
 					
 					if ($usuario->guardar()){
 						$band = $usuario->setPass($_POST['pass']);
+						
+						if ($band){
+							$obj = new TSuscripcion();
+							$obj->setInicio(date("Y-m-d"));
+							$obj->setEmpresa($empresa->getId());
+							$obj->setPaquete(1);
+							
+							$band = $obj->guardar();
+						}
 					}else{
 						$empresa->eliminar();
 						$band = false;

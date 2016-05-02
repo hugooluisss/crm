@@ -299,7 +299,7 @@ $conf['pedidos'] = array(
 	'capa' => LAYOUT_DEFECTO);
 	
 $conf['success'] = array(
-	'controlador' => 'pedidos.php',
+	'controlador' => 'suscripciones.php',
 	'vista' => 'usuarios/compraOk.tpl',
 	'descripcion' => 'Despues de realizar una compra',
 	'seguridad' => true,
