@@ -27,7 +27,7 @@ switch($objModulo->getId()){
 				$obj->setEmail($_POST['email']);
 				$obj->setDireccion($_POST['direccion']);
 				$obj->setComentarios($_POST['comentarios']);
-				$obj->empresa->setId($userSesion->empresa->getId());
+				$obj->empresa->setId($_POST['empresa'] == ''?$userSesion->empresa->getId():$_POST['empresa']);
 				
 				if ($obj->guardar())
 					echo json_encode(array("band" => "true", "id" => $obj->getId()));
@@ -41,6 +41,19 @@ switch($objModulo->getId()){
 					echo json_encode(array("band" => "true"));
 				else
 					echo json_encode(array("band" => "false"));
+			break;
+			case 'lista':
+				$db = TBase::conectaDB();
+				global $userSesion;
+				$rs = $db->Execute("select * from cliente where estado = 'A' and idEmpresa = ".$_POST['empresa']);
+				$datos = array();
+				while(!$rs->EOF){
+					array_push($datos, $rs->fields);
+					
+					$rs->moveNext();
+				}
+				
+				echo json_encode($datos);
 			break;
 		}
 	break;

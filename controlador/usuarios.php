@@ -13,6 +13,8 @@ switch($objModulo->getId()){
 			array_push($datos, $rs->fields);
 			$rs->moveNext();
 		}
+		
+		$smarty->assign("empresa", $userSesion->empresa);
 		$smarty->assign("perfiles", $datos);
 	break;
 	case 'usuariosAdmon':
@@ -89,7 +91,33 @@ switch($objModulo->getId()){
 					echo $rs->fields['idUsuario'] == $_POST['usuario']?"true":"false";
 
 			break;
-
+			case 'getPanel':
+				$db = TBase::conectaDB();
+				$usuario = new TUsuario($_POST['usuario']);
+				
+				$rs = $db->Execute("select a.* from perfil a where publico like '".($usuario->perfil->getId() == 3?"%":"S")."'");
+				$datos = array();
+				while(!$rs->EOF){
+					array_push($datos, $rs->fields);
+					$rs->moveNext();
+				}
+				
+				echo json_encode($datos);
+			break;
+			case 'lista':
+				$db = TBase::conectaDB();
+		
+				$empresa = ($_POST['empresa'] == '')?$pageSesion->empresa->getId():$_POST['empresa'];
+			
+				$rs = $db->Execute("select a.*, b.nombre as perfil from usuario a join perfil b using(idPerfil) where idEmpresa = ".$empresa);
+				$datos = array();
+				while(!$rs->EOF){
+					array_push($datos, $rs->fields);
+					$rs->moveNext();
+				}
+				
+				echo json_encode($datos);
+			break;
 		}
 	break;
 }

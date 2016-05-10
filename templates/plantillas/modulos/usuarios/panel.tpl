@@ -3,7 +3,7 @@
 		<h1 class="page-header">Administración de usuarios</h1>
 	</div>
 </div>
-
+{if $PAGE.modulo eq 'usuariosAdmon'}
 <div class="row">
 	<div class="col-lg-6">
 		{$empresa->getRazonSocial()}
@@ -14,7 +14,7 @@
 		</div>
 	</div>
 </div>
-
+{/if}
 <br />
 <ul class="nav nav-tabs">
 	<li class="active"><a data-toggle="tab" href="#lista">Registrados</a></li>
