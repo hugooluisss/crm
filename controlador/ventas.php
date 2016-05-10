@@ -46,7 +46,7 @@ switch($objModulo->getId()){
 				$obj->setPagos($_POST['pagos']);
 				
 				if ($_POST['id'] == '')
-					$obj->setUsuario($userSesion->getId());
+					$obj->setUsuario($_POST['usuario'] == ''?$userSesion->getId():$_POST['usuario']);
 				
 				if ($obj->guardar())
 					echo json_encode(array("band" => "true", "id" => $obj->getId()));
