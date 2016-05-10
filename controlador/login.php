@@ -38,6 +38,9 @@ switch($objModulo->getId()){
 					}else{
 						$data = array();
 						$data['identificador'] = $obj->getId();
+						$data['tipo'] = $obj->perfil->getId();
+						$data['nombre'] = $obj->getNombre().' '.$obj->getApellidos();
+						$data['empresa'] = $obj->empresa->getId();
 						$result["datos"] = $data;
 					}
 					

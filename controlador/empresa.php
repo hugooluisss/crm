@@ -28,11 +28,11 @@ switch($objModulo->getId()){
 		switch($objModulo->getAction()){
 			case 'guardar':
 				global $userSesion;
-				$obj = new TEmpresa($userSesion->empresa->getId());
+				$obj = new TEmpresa($_POST['id'] == ''?$userSesion->empresa->getId():$_POST['id']);
 				
 				$obj->setRazonSocial($_POST['razonsocial']);
 				$obj->setDireccion($_POST['direccion']);
-				$obj->setURL($_POST['sitio']);
+				$obj->setURL($_POST['url']);
 				
 				if($obj->guardar())
 					echo json_encode(array("band" => true));
@@ -55,7 +55,13 @@ switch($objModulo->getId()){
 				else
 					echo json_encode(array("band" => "false"));
 			break;
-
+			case "getDatos":
+				$db = TBase::conectaDB();
+				
+				$rs = $db->Execute("select * from empresa where idEmpresa = ".$_POST['id']);
+				
+				echo json_encode($rs->fields);
+			break;
 		}
 	break;
 }
