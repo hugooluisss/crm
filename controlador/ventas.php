@@ -109,6 +109,40 @@ switch($objModulo->getId()){
 				
 				echo json_encode($datos);
 			break;
+			
+			#movil
+			case 'ventas':
+				$db = TBase::conectaDB();
+				global $userSesion;
+				$rs = $db->Execute("select a.*, b.* from venta a join cliente b using(idCliente) where idEmpresa = '".$_POST['empresa']."' group by idVenta");
+				$datos = array();
+				while(!$rs->EOF){
+					$objVenta = new TVenta($rs->fields['idVenta']);
+					$rs->fields['monto'] = sprintf("%.2f", $objVenta->getMontoVenta());
+					$rs->fields['saldo'] = sprintf("%.2f", $rs->fields['monto'] - $objVenta->getMontoPagos());
+					
+					array_push($datos, $rs->fields);
+					
+					$rs->moveNext();
+				}
+				
+				echo json_encode($datos);
+			break;
+			case 'movimientos':
+				$db = TBase::conectaDB();
+				global $userSesion;
+				$rs = $db->Execute("select * from movventa where idVenta = ".$_POST['venta']);
+				$datos = array();
+				$precio = 0;
+				while(!$rs->EOF){
+					$precio +=  $rs->fields['precio'];
+					array_push($datos, $rs->fields);
+					
+					$rs->moveNext();
+				}
+				
+				echo json_encode(array("movimientos" => $datos, "total" => sprintf("%.2f", $precio)));
+			break;
 		}
 	break;
 }

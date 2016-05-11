@@ -43,6 +43,24 @@ switch($objModulo->getId()){
 				else
 					echo json_encode(array("band" => "false"));
 			break;
+			case 'pagos':
+				$db = TBase::conectaDB();
+				
+				$objVenta = new TVenta($_POST['venta']);
+				$rs = $db->Execute("select * from pago where idVenta = ".$_POST['venta']);
+				$datos = array();
+				$ventas = $objVenta->getMontoVenta();
+				while(!$rs->EOF){
+					$ventas -= $rs->fields['monto'];
+					$rs->fields['saldo'] = sprintf("%.2f", $ventas);
+					
+					array_push($datos, $rs->fields);
+					
+					$rs->moveNext();
+				}
+				
+				echo json_encode(array("pagos" => $datos, "saldo" => sprintf("%.2f", $objVenta->getSaldo())));
+			break;
 		}
 	break;
 }
