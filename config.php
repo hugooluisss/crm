@@ -9,6 +9,7 @@ define('STATUS', 'En desarrollo');
 
 define('LAYOUT_DEFECTO', 'layout/default.tpl');
 define('LAYOUT_AJAX', 'layout/update.tpl');
+define('LAYOUT_JSON', 'layout/json.tpl');
 
 #Login y su controlador	
 $conf['inicio'] = array(
@@ -56,6 +57,10 @@ $conf['panelPrincipal'] = array(
 	'js' => array("venta.class.js"),
 	'jsTemplate' => array("index.js"),
 	'capa' => LAYOUT_DEFECTO);
+
+$conf['panelPrincipal_JSON'] = $conf['panelPrincipal'];
+$conf['panelPrincipal_JSON']['seguridad'] = false;
+$conf['panelPrincipal_JSON']['capa'] = LAYOUT_JSON;
 
 $conf['usuarios'] = array(
 	'controlador' => 'usuarios.php',
@@ -297,6 +302,10 @@ $conf['pedidos'] = array(
 	'seguridad' => true,
 	'jsTemplate' => array('pedidos.js'),
 	'capa' => LAYOUT_DEFECTO);
+
+$conf['pedidos_json'] = $conf['pedidos'];
+$conf['pedidos_json']['capa'] = LAYOUT_JSON;
+$conf['pedidos_json']['seguridad'] = false;
 	
 $conf['success'] = array(
 	'controlador' => 'suscripciones.php',

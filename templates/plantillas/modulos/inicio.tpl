@@ -19,7 +19,7 @@
 				<h2><i class="fa fa-cc" aria-hidden="true"></i> Mi economía</h2>
 			</div>
 			<div class="panel-body">
-				En este {date("Y")} has vendido <b>${$montoVentas}</b> de lo cual has recuparado <b>${$pagosVentas}</b>, Intenta recuperar <b>${$saldoVentas}</b>
+				En este {date("Y")} has vendido <b>${$montoVentas}</b> de lo cual has recuperado <b>${$pagosVentas}</b>, Intenta recuperar <b>${$saldoVentas}</b>
 			</div>
 			<div class="panel-footer text-right">
 				<a href="ventas" class="btn">Ir a ventas</a>

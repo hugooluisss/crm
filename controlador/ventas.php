@@ -99,7 +99,7 @@ switch($objModulo->getId()){
 				
 				$inicio = $_POST['inicio'] == ''?date("Y-m-d", strtotime("-30 days", strtotime(date("Y-m-d")))):$_POST['inicio'];
 				
-				$rs = $db->Execute("select cast(fecha as date) as dia, sum(precio) as total from movventa a join venta b using(idVenta) join cliente c using(idCliente) where idEmpresa = ".$userSesion->empresa->getId()." and fecha >= '".$inicio." 00:00:00' group by dia");
+				$rs = $db->Execute("select cast(fecha as date) as dia, sum(precio) as total from movventa a join venta b using(idVenta) join cliente c using(idCliente) where idEmpresa = ".($_POST['empresa'] == ''?$userSesion->empresa->getId():$_POST['empresa'])." and fecha >= '".$inicio." 00:00:00' group by dia");
 				
 				$datos = array();
 				while(!$rs->EOF){
