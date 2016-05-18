@@ -118,6 +118,12 @@ switch($objModulo->getId()){
 				
 				echo json_encode($datos);
 			break;
+			case 'uploadImagenPerfil':
+				if (file_exists("repositorio/imagenesUsuarios/img_".$_POST['identificador'].".jpg"))
+					unlink("repositorio/imagenesUsuarios/img_".$_POST['identificador'].".jpg");
+					
+				move_uploaded_file($_FILES["file"]["tmp_name"], "repositorio/imagenesUsuarios/img_".$_POST['identificador'].".jpg");
+			break;
 		}
 	break;
 }

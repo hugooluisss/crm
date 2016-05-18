@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-29 08:57:22
+<?php /* Smarty version Smarty-3.1.11, created on 2016-05-17 19:29:13
          compiled from "templates/plantillas/modulos/inicio.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:99655443357199ad1110de4-06602645%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4dd97137c284ab0e063fd62794520df2227c9f0c' => 
     array (
       0 => 'templates/plantillas/modulos/inicio.tpl',
-      1 => 1461937729,
+      1 => 1463018818,
       2 => 'file',
     ),
   ),
@@ -50,7 +50,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<div class="panel-body">
 				En este <?php echo date("Y");?>
  has vendido <b>$<?php echo $_smarty_tpl->tpl_vars['montoVentas']->value;?>
-</b> de lo cual has recuparado <b>$<?php echo $_smarty_tpl->tpl_vars['pagosVentas']->value;?>
+</b> de lo cual has recuperado <b>$<?php echo $_smarty_tpl->tpl_vars['pagosVentas']->value;?>
 </b>, Intenta recuperar <b>$<?php echo $_smarty_tpl->tpl_vars['saldoVentas']->value;?>
 </b>
 			</div>

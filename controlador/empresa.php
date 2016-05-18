@@ -42,7 +42,12 @@ switch($objModulo->getId()){
 			case 'getSuscripcion':
 				global $userSesion;
 				
-				if ($userSesion->empresa->isSuscripto())
+				if ($_POST['id'] == '')
+					$usuario = $userSesion;
+				else
+					$usuario = new TUsuario($_POST['id']);
+					
+				if ($usuario->empresa->isSuscripto())
 					echo json_encode(array("band" => "true"));
 				else
 					echo json_encode(array("band" => "false"));

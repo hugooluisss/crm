@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-05-02 13:48:41
+<?php /* Smarty version Smarty-3.1.11, created on 2016-05-18 00:25:37
          compiled from "templates/plantillas/layout/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:143307706257199ad0dc2504-86616377%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88f47345f87357691db158f81dd14f424f0cd759' => 
     array (
       0 => 'templates/plantillas/layout/default.tpl',
-      1 => 1462206304,
+      1 => 1463549133,
       2 => 'file',
     ),
   ),
@@ -156,7 +156,8 @@ plugins/daterangepicker/daterangepicker-bs3.css">
 							<li class="dropdown profile_details_drop">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 									<div class="profile_img">	
-										<span style="background:url(images/1.jpg) no-repeat center"> </span> 
+										<span style="background:url(images/1.jpg) no-repeat center"><img src="./repositorio/imagenesUsuarios/img_<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['usuario']->getId();?>
+.jpg" class="img-circle" style="width:40px; height: 40px" id="fotoPerfil" onerror="this.onerror=null;this.src='./img/user.png';"/> </span> 
 										 <div class="user-name">
 											<p><?php echo $_smarty_tpl->tpl_vars['PAGE']->value['usuario']->getNombre();?>
 <span><?php echo $_smarty_tpl->tpl_vars['PAGE']->value['usuario']->perfil->getNombre();?>

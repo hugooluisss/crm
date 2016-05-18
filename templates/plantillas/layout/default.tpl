@@ -118,7 +118,7 @@
 							<li class="dropdown profile_details_drop">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 									<div class="profile_img">	
-										<span style="background:url(images/1.jpg) no-repeat center"> </span> 
+										<span style="background:url(images/1.jpg) no-repeat center"><img src="./repositorio/imagenesUsuarios/img_{$PAGE.usuario->getId()}.jpg" class="img-circle" style="width:40px; height: 40px" id="fotoPerfil" onerror="this.onerror=null;this.src='./img/user.png';"/> </span> 
 										 <div class="user-name">
 											<p>{$PAGE.usuario->getNombre()}<span>{$PAGE.usuario->perfil->getNombre()}</span></p>
 										 </div>
