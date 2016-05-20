@@ -16,6 +16,31 @@ switch($objModulo->getId()){
 
 		$smarty->assign("lista", $datos);
 	break;
+	case 'estadoCuenta':
+		$db = TBase::conectaDB();
+		global $userSesion;
+		$rs = $db->Execute("select idVenta, sum(precio) as monto, a.fecha from venta a join movventa b using(idVenta) left join pago c using(idVenta) where idCliente = ".$_POST['cliente']." group by idVenta;");
+		$datos = array();
+		$venta = new TVenta;
+		$cliente = new TCliente($_POST['cliente']);
+		$saldo = 0;
+		while(!$rs->EOF){
+			$venta->setId($rs->fields['idVenta']);
+			$rs->fields['saldo'] = $venta->getSaldo();
+			$rs->fields['json']	= json_encode($rs->fields);
+			
+			if ($rs->fields['saldo'] > 0){
+				array_push($datos, $rs->fields);
+				$saldo += $rs->fields['saldo'];
+			}
+			
+			$rs->moveNext();
+		}
+
+		$smarty->assign("lista", $datos);
+		$smarty->assign("saldo", sprintf("%.2f", $saldo));
+		$smarty->assign("cliente", $cliente->getNombre());
+	break;
 	case 'cclientes':
 		switch($objModulo->getAction()){
 			case 'guardar':

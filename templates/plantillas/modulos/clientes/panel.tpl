@@ -54,3 +54,5 @@
 		</form>
 	</div>
 </div>
+
+{include file=$PAGE.rutaModulos|cat:"modulos/clientes/estadoCuenta.tpl"}

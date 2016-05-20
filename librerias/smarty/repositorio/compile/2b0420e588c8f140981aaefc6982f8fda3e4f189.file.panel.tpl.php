@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-26 10:51:59
+<?php /* Smarty version Smarty-3.1.11, created on 2016-05-18 13:08:07
          compiled from "templates/plantillas/modulos/clientes/panel.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:154227726571bbc638fb000-58656233%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2b0420e588c8f140981aaefc6982f8fda3e4f189' => 
     array (
       0 => 'templates/plantillas/modulos/clientes/panel.tpl',
-      1 => 1461598044,
+      1 => 1463594723,
       2 => 'file',
     ),
   ),
@@ -17,6 +17,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.11',
   'unifunc' => 'content_571bbc6395b201_88570572',
+  'variables' => 
+  array (
+    'PAGE' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_571bbc6395b201_88570572')) {function content_571bbc6395b201_88570572($_smarty_tpl) {?><div class="row">
@@ -74,4 +78,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<input type="hidden" id="id"/>
 		</form>
 	</div>
-</div><?php }} ?>
+</div>
+
+<?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['PAGE']->value['rutaModulos']).("modulos/clientes/estadoCuenta.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+<?php }} ?>

@@ -314,3 +314,11 @@ $conf['success'] = array(
 	'seguridad' => true,
 	#'jsTemplate' => array('pedidos.js'),
 	'capa' => 'layout/login.tpl');
+	
+	
+$conf['estadoCuenta'] = array(
+	'controlador' => 'clientes.php',
+	'vista' => 'clientes/listaEstadoCuenta.tpl',
+	'descripcion' => 'Estado de cuenta del cliente',
+	'seguridad' => false,
+	'capa' => LAYOUT_AJAX);

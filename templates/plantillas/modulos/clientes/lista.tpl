@@ -16,6 +16,7 @@
 						<td>{$row.nombre}</td>
 						<td>{$row.telefono}</td>
 						<td style="text-align: right">
+							<button type="button" class="btn btn-default" action="estado" title="Estado de cuenta" datos='{$row.json}'><i class="fa fa-money" aria-hidden="true"></i></button>
 							<button type="button" class="btn btn-default" action="modificar" title="Modificar" datos='{$row.json}'><i class="fa fa-pencil"></i></button>
 							<button type="button" class="btn btn-danger" action="eliminar" title="Eliminar" cliente="{$row.idCliente}"><i class="fa fa-times"></i></button>
 						</td>

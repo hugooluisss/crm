@@ -88,6 +88,28 @@ $(document).ready(function(){
 					});
 				}
 			});
+			
+			$("[action=estado]").click(function(){
+				$("#winVentas").modal();
+				var el = jQuery.parseJSON($(this).attr("datos"));
+				
+				$.post("estadoCuenta", {
+					"cliente": el.idCliente
+				}, function(html){
+					$("#winVentas").find(".modal-body").html(html);
+					
+					$("#tblEstado").DataTable({
+						"responsive": true,
+						"language": espaniol,
+						"paging": true,
+						"lengthChange": false,
+						"ordering": true,
+						"info": true,
+						"autoWidth": true
+					});
+
+				});
+			});
 			$("#tblClientes").DataTable({
 				"responsive": true,
 				"language": espaniol,
