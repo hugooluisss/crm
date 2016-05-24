@@ -17,6 +17,11 @@ $(document).ready(function(){
 			},
 			txtEmail: {
 				email: true,
+			},
+			txtLimite: {
+				number: true,
+				min: 0,
+				required: true
 			}
 		},
 		errorElement : 'span',
@@ -31,7 +36,11 @@ $(document).ready(function(){
 				minlength: "Solo números y deben ser minimamente 5",
 				minlength: "Solo números y deben ser máximo 12"
 			},
-			txtNombre: "Este campo es necesario"
+			txtNombre: "Este campo es necesario",
+			txtLimite: {
+				number: "Solo números",
+				min: "Solo números y el valor mínimo es 0"
+			}
 		},
 		submitHandler: function(form){
 			var obj = new TCliente;
@@ -42,6 +51,7 @@ $(document).ready(function(){
 				$("#txtTelefono").val(),
 				$("#txtEmail").val(),
 				$("#txtDireccion").val(),
+				$("#txtLimite").val(),
 				{
 					after: function(datos){
 						if (datos.band){
@@ -50,7 +60,7 @@ $(document).ready(function(){
 							$("#frmAdd").get(0).reset();
 							$('.nav a[href="#lista"]').tab('show');
 						}else{
-							alert("Upps... " + datos.mensaje);
+							alert("Upps... no se pudo guardar");
 						}
 					}
 				}
@@ -72,6 +82,7 @@ $(document).ready(function(){
 				$("#txtSexo").val(el.sexo);
 				$("#txtEmail").val(el.email);
 				$("#txtDireccion").val(el.direccion);
+				$("#txtLimite").val(el.limite);
 				
 				$('.nav a[href="#add"]').tab('show');
 			});

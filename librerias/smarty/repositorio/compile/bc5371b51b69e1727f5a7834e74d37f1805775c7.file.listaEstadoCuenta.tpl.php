@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-05-18 13:35:15
+<?php /* Smarty version Smarty-3.1.11, created on 2016-05-23 22:34:04
          compiled from "templates/plantillas/modulos/clientes/listaEstadoCuenta.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1062990699573cb393590c65-01963395%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bc5371b51b69e1727f5a7834e74d37f1805775c7' => 
     array (
       0 => 'templates/plantillas/modulos/clientes/listaEstadoCuenta.tpl',
-      1 => 1463596513,
+      1 => 1464060792,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'cliente' => 0,
+    'limite' => 0,
     'saldo' => 0,
     'lista' => 0,
     'row' => 0,
@@ -28,14 +29,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_573cb39361e672_40414451')) {function content_573cb39361e672_40414451($_smarty_tpl) {?><div class="box">
 	<div class="box-body">
-		<b>Cliente: </b> <?php echo $_smarty_tpl->tpl_vars['cliente']->value;?>
+		<div class="alert alert-info" role="alert">
+			<b>Cliente: </b> <?php echo $_smarty_tpl->tpl_vars['cliente']->value;?>
 <br />
-		<b>Saldo deudor: </b> <span class="error"><?php echo $_smarty_tpl->tpl_vars['saldo']->value;?>
+			<b>Límite de crédito: </b> <span class="warning"><?php if ($_smarty_tpl->tpl_vars['limite']->value>0){?><?php echo $_smarty_tpl->tpl_vars['limite']->value;?>
+<?php }else{ ?>---<?php }?></span><br />
+			<b>Saldo deudor: </b> <span class="error"><?php echo $_smarty_tpl->tpl_vars['saldo']->value;?>
 </span><br />
+		</div>
 		<table id="tblEstado" class="table table-bordered table-hover">
 			<thead>
 				<tr>
-					<th>Venta</th>
+					<th>ID</th>
 					<th>Fecha</th>
 					<th>Monto</th>
 					<th>Saldo</th>

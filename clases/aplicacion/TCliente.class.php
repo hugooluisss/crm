@@ -8,6 +8,7 @@ class TCliente{
 	private $direccion;
 	private $estado;
 	public $empresa;
+	private $limite;
 	
 	public function TCliente($id = ''){
 		$this->empresa = new TEmpresa();
@@ -101,6 +102,15 @@ class TCliente{
 		return $this->estado;
 	}
 	
+	public function setLimite($val = 0){
+		$this->limite = $val;
+		return true;
+	}
+	
+	public function getLimite(){
+		return $this->limite == ''?0:$this->limite;
+	}
+	
 	public function guardar(){
 		if ($this->empresa->getId() == '') return false;
 		$db = TBase::conectaDB();
@@ -119,7 +129,8 @@ class TCliente{
 				sexo = '".$this->getSexo()."',
 				telefono = '".$this->getTelefono()."',
 				email = '".$this->getEmail()."',
-				direccion = '".$this->getDireccion()."'
+				direccion = '".$this->getDireccion()."',
+				limite = ".$this->getLimite()."
 			WHERE idCliente = ".$this->getId());
 			
 		return $rs?true:false;
@@ -130,6 +141,29 @@ class TCliente{
 		
 		$db = TBase::conectaDB();
 		return $db->Execute("update cliente set estado = 'E' where idCliente = ".$this->getId())?true:false;
+	}
+	
+	public function getSaldo(){
+		$db = TBase::conectaDB();
+		
+		$rs = $db->Execute("select idVenta, sum(precio) as monto, a.fecha from venta a join movventa b using(idVenta) left join pago c using(idVenta) where idCliente = ".$this->getId()." group by idVenta;");
+		$datos = array();
+		$venta = new TVenta;
+		$saldo = 0;
+		while(!$rs->EOF){
+			$venta->setId($rs->fields['idVenta']);
+			$rs->fields['saldo'] = $venta->getSaldo();
+			$rs->fields['json']	= json_encode($rs->fields);
+			
+			if ($rs->fields['saldo'] > 0){
+				array_push($datos, $rs->fields);
+				$saldo += $rs->fields['saldo'];
+			}
+			
+			$rs->moveNext();
+		}
+		
+		return $saldo;
 	}
 }
 ?>

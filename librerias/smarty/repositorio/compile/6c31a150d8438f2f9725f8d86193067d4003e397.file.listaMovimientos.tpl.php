@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-28 15:11:49
+<?php /* Smarty version Smarty-3.1.11, created on 2016-05-23 23:06:07
          compiled from "templates/plantillas/modulos/ventas/listaMovimientos.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:5815182065721082ea7ab54-82375234%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c31a150d8438f2f9725f8d86193067d4003e397' => 
     array (
       0 => 'templates/plantillas/modulos/ventas/listaMovimientos.tpl',
-      1 => 1461870445,
+      1 => 1464062760,
       2 => 'file',
     ),
   ),
@@ -19,13 +19,25 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_5721082ebde8a3_59452974',
   'variables' => 
   array (
+    'saldoCliente' => 0,
+    'limiteCliente' => 0,
+    'sobrepaso' => 0,
     'lista' => 0,
     'row' => 0,
     'total' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5721082ebde8a3_59452974')) {function content_5721082ebde8a3_59452974($_smarty_tpl) {?><table id="tblMovimientos" class="table table-bordered table-hover">
+<?php if ($_valid && !is_callable('content_5721082ebde8a3_59452974')) {function content_5721082ebde8a3_59452974($_smarty_tpl) {?><div class="alert alert-info">
+	El cliente debe $ <?php echo $_smarty_tpl->tpl_vars['saldoCliente']->value;?>
+, <?php if ($_smarty_tpl->tpl_vars['limiteCliente']->value>0){?> el límite de crédito es de <?php echo $_smarty_tpl->tpl_vars['limiteCliente']->value;?>
+<?php }?>. 
+	<?php if ($_smarty_tpl->tpl_vars['saldoCliente']->value>=$_smarty_tpl->tpl_vars['limiteCliente']->value&&$_smarty_tpl->tpl_vars['limiteCliente']->value>0){?>
+		<span class="error">Sobrepasó su límite de crédito por <?php echo $_smarty_tpl->tpl_vars['sobrepaso']->value;?>
+</span>
+	<?php }?>
+</div>
+<table id="tblMovimientos" class="table table-bordered table-hover">
 	<thead>
 		<tr>
 			<th>Clave</th>

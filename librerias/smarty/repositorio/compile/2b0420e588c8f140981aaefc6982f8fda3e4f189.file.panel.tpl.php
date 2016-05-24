@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-05-18 13:08:07
+<?php /* Smarty version Smarty-3.1.11, created on 2016-05-23 22:23:57
          compiled from "templates/plantillas/modulos/clientes/panel.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:154227726571bbc638fb000-58656233%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2b0420e588c8f140981aaefc6982f8fda3e4f189' => 
     array (
       0 => 'templates/plantillas/modulos/clientes/panel.tpl',
-      1 => 1463594723,
+      1 => 1464060230,
       2 => 'file',
     ),
   ),
@@ -65,6 +65,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<label for="txtEmail" class="col-sm-2 control-label">Email</label>
 				<div class="col-sm-4">
 					<input type="text" id="txtEmail" name="txtEmail" autofocus="true" class="form-control" autocomplete="false" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="txtLimite" class="col-sm-2 control-label">Límite</label>
+				<div class="col-sm-2">
+					<input type="text" id="txtLimite" name="txtLimite" autofocus="true" class="form-control" autocomplete="false" value="0"/>
+				</div>
+				<div class="col-sm-4">
+					<small>Establecer en 0 si es que no hay límite de crédito</small>
 				</div>
 			</div>
 			<div class="form-group">

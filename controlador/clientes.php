@@ -39,6 +39,7 @@ switch($objModulo->getId()){
 
 		$smarty->assign("lista", $datos);
 		$smarty->assign("saldo", sprintf("%.2f", $saldo));
+		$smarty->assign("limite", sprintf("%.2f", $cliente->getLimite()));
 		$smarty->assign("cliente", $cliente->getNombre());
 	break;
 	case 'cclientes':
@@ -52,20 +53,21 @@ switch($objModulo->getId()){
 				$obj->setEmail($_POST['email']);
 				$obj->setDireccion($_POST['direccion']);
 				$obj->setComentarios($_POST['comentarios']);
+				$obj->setLimite($_POST['limite']);
 				$obj->empresa->setId($_POST['empresa'] == ''?$userSesion->empresa->getId():$_POST['empresa']);
 				
 				if ($obj->guardar())
-					echo json_encode(array("band" => "true", "id" => $obj->getId()));
+					echo json_encode(array("band" => true, "id" => $obj->getId()));
 				else
-					echo json_encode(array("band" => "false"));
+					echo json_encode(array("band" => false));
 			break;
 			case 'del':
 				$obj = new TCliente($_POST['id']);
 				
 				if ($obj->eliminar())
-					echo json_encode(array("band" => "true"));
+					echo json_encode(array("band" => true));
 				else
-					echo json_encode(array("band" => "false"));
+					echo json_encode(array("band" => false));
 			break;
 			case 'lista':
 				$db = TBase::conectaDB();

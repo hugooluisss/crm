@@ -23,6 +23,8 @@ switch($objModulo->getId()){
 		$db = TBase::conectaDB();
 		global $userSesion;
 		$rs = $db->Execute("select * from movventa where idVenta = ".$_POST['venta']);
+		$objVenta = new TVenta($_POST['venta']);
+		
 		$datos = array();
 		$precio = 0;
 		while(!$rs->EOF){
@@ -34,6 +36,9 @@ switch($objModulo->getId()){
 		}
 
 		$smarty->assign("lista", $datos);
+		$smarty->assign("limiteCliente", sprintf("%.2f", $objVenta->cliente->getLimite()));
+		$smarty->assign("saldoCliente", sprintf("%.2f", $objVenta->cliente->getSaldo()));
+		$smarty->assign("sobrepaso", sprintf("%.2f", $objVenta->cliente->getSaldo() - $objVenta->cliente->getLimite()));
 		$smarty->assign("total", sprintf("%.2f", $precio));
 	break;
 	case 'cventas':
@@ -134,6 +139,7 @@ switch($objModulo->getId()){
 				$rs = $db->Execute("select * from movventa where idVenta = ".$_POST['venta']);
 				$datos = array();
 				$precio = 0;
+				$objVenta = new TVenta($_POST['venta']);
 				while(!$rs->EOF){
 					$precio +=  $rs->fields['precio'];
 					array_push($datos, $rs->fields);
@@ -141,7 +147,13 @@ switch($objModulo->getId()){
 					$rs->moveNext();
 				}
 				
-				echo json_encode(array("movimientos" => $datos, "total" => sprintf("%.2f", $precio)));
+				echo json_encode(
+					array(
+						"movimientos" => $datos, 
+						"total" => sprintf("%.2f", $precio), 
+						"limiteCliente" => sprintf("%.2f", $objVenta->cliente->getLimite()), 
+						"saldoCliente" => sprintf("%.2f", $objVenta->cliente->getSaldo()), 
+						"sobrepaso" => sprintf("%.2f", $objVenta->cliente->getSaldo() - $objVenta->cliente->getLimite())));
 			break;
 		}
 	break;

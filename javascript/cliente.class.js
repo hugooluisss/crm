@@ -1,7 +1,7 @@
 TCliente = function(){
 	var self = this;
 	
-	this.add = function(id, nombre, sexo, telefono, email, direccion, fn){
+	this.add = function(id, nombre, sexo, telefono, email, direccion, limite, fn){
 		if (fn.before !== undefined) fn.before();
 		
 		$.post('cclientes', {
@@ -11,7 +11,8 @@ TCliente = function(){
 				"sexo": sexo,
 				"telefono": telefono,
 				"email": email,
-				"direccion": direccion
+				"direccion": direccion,
+				"limite": limite
 			}, function(data) {
 				if (data.band == 'false')
 					console.log(data.mensaje == ''?"Upps. Ocurrió un error al agregar al cliente":data.mensaje);
@@ -28,7 +29,7 @@ TCliente = function(){
 			"action": "del",
 			"id": cliente,
 		}, function(data){
-			if (data.band == 'false')
+			if (data.band == false)
 				console.log("Ocurrió un error al eliminar al cliente");
 			
 			if (fn.after !== undefined) fn.after(data);

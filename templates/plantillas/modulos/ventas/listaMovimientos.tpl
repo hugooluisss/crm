@@ -1,3 +1,9 @@
+<div class="alert alert-info">
+	El cliente debe $ {$saldoCliente}, {if $limiteCliente > 0} el límite de crédito es de {$limiteCliente}{/if}. 
+	{if $saldoCliente >= $limiteCliente and $limiteCliente > 0}
+		<span class="error">Sobrepasó su límite de crédito por {$sobrepaso}</span>
+	{/if}
+</div>
 <table id="tblMovimientos" class="table table-bordered table-hover">
 	<thead>
 		<tr>

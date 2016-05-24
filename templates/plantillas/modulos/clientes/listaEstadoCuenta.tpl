@@ -2,6 +2,7 @@
 	<div class="box-body">
 		<div class="alert alert-info" role="alert">
 			<b>Cliente: </b> {$cliente}<br />
+			<b>Límite de crédito: </b> <span class="warning">{if $limite > 0}{$limite}{else}---{/if}</span><br />
 			<b>Saldo deudor: </b> <span class="error">{$saldo}</span><br />
 		</div>
 		<table id="tblEstado" class="table table-bordered table-hover">
