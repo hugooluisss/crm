@@ -35,4 +35,18 @@ TCliente = function(){
 			if (fn.after !== undefined) fn.after(data);
 		}, "json");
 	};
+	
+	this.sendEstadoCuenta = function(cliente, fn){
+		if (fn.before !== undefined) fn.before();
+		
+		$.post('cclientes', {
+			"action": "enviarEstadoCuenta",
+			"id": cliente,
+		}, function(data){
+			if (data.band == false)
+				console.log("Ocurrió un error al enviar el estado de cuenta");
+			
+			if (fn.after !== undefined) fn.after(data);
+		}, "json");
+	}
 };

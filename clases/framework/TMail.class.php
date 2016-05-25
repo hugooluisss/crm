@@ -27,15 +27,19 @@ class TMail{
 		$this->phpMailer->IsSMTP();
 		$this->phpMailer->Mailer = "smtp";
 		$this->phpMailer->SMTPSecure = "ssl";
-		$this->phpMailer->Host = $ini['mail']['servidor'];
+		$this->phpMailer->Host = $ini['mail']['server'];
 
 		$this->phpMailer->SMTPAuth = true;
 		$this->phpMailer->Port = $ini['mail']['puerto'];
 		$this->phpMailer->Username = $ini['mail']['usuario'];
 		$this->phpMailer->Password = $ini['mail']['pass'];
 		$this->phpMailer->IsHTML (true);
-		$this->phpMailer->FromName = 'Inscripciones';
+		$this->phpMailer->FromName = 'CPYMES';
+		$this->phpMailer->SMTPSecure = 'tls';
 		$this->permitir = true;
+		
+		if ($ini['mail']['contestarA'] <> '')
+			$this->phpMailer->AddReplyTo($ini['mail']['contestarA']);
 	}
 	
 	public function setUser($val){
@@ -101,7 +105,7 @@ class TMail{
 */		
 	public function construyeMail($texto, $datos){
 		foreach($datos as $indice => $valor)
-			$texto = str_replace('#'.$indice.'#', $datos[$indice], $texto);
+			$texto = str_replace('['.$indice.']', $datos[$indice], $texto);
 			
 		return $texto;
 	}
@@ -121,6 +125,12 @@ class TMail{
 */
 	public function setDirOrigen($dir){
 		$this->phpMailer->From = $dir;
+		
+		return true;
+	}
+	
+	public function addImg($file, $nombre, $nombreArchivo){
+		$this->phpMailer->AddEmbeddedImage($file, $nombre, $nombreArchivo);
 		
 		return true;
 	}

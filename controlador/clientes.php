@@ -26,7 +26,7 @@ switch($objModulo->getId()){
 		$saldo = 0;
 		while(!$rs->EOF){
 			$venta->setId($rs->fields['idVenta']);
-			$rs->fields['saldo'] = $venta->getSaldo();
+			$rs->fields['saldo'] = sprintf("%0.2f", $venta->getSaldo());
 			$rs->fields['json']	= json_encode($rs->fields);
 			
 			if ($rs->fields['saldo'] > 0){
@@ -41,6 +41,7 @@ switch($objModulo->getId()){
 		$smarty->assign("saldo", sprintf("%.2f", $saldo));
 		$smarty->assign("limite", sprintf("%.2f", $cliente->getLimite()));
 		$smarty->assign("cliente", $cliente->getNombre());
+		$smarty->assign("objCliente", $cliente);
 	break;
 	case 'cclientes':
 		switch($objModulo->getAction()){
@@ -81,6 +82,29 @@ switch($objModulo->getId()){
 				}
 				
 				echo json_encode($datos);
+			break;
+			case 'enviarEstadoCuenta':
+				$db = TBase::conectaDB();
+				global $userSesion;
+				$cliente = new TCliente($_POST['id']);
+				
+				$email = new TMail;
+				$email->setTema("Estado de cuenta");
+				$email->setDestino($cliente->getEmail(), utf8_decode($cliente->getNombre()));
+				
+				$datos = array();
+				$datos['cliente.nombre'] = $cliente->getNombre();
+				$datos['empresa.correo'] = $userSesion->getEmail();
+				$datos['empresa.nombre'] = $userSesion->empresa->getRazonSocial();
+				$datos['empresa.direccion'] = $userSesion->empresa->getDireccion();
+				
+				$email->setBodyHTML(utf8_decode($email->construyeMail(file_get_contents("repositorio/email/index.html"), $datos)));
+				//$email->adjuntar($documento);
+				
+				$email->addImg("repositorio/email/images/facebook.png", "facebook", "facebook.png");
+				$email->addImg("repositorio/email/images/line.png", "line", "line.png");
+				
+				echo json_encode(array("band" => $email->send()));
 			break;
 		}
 	break;

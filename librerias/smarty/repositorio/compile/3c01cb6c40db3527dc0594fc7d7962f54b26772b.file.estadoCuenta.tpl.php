@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-05-18 13:08:07
+<?php /* Smarty version Smarty-3.1.11, created on 2016-05-25 12:21:56
          compiled from "templates/plantillas/modulos/clientes/estadoCuenta.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1006542946573caf877225f6-87191406%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3c01cb6c40db3527dc0594fc7d7962f54b26772b' => 
     array (
       0 => 'templates/plantillas/modulos/clientes/estadoCuenta.tpl',
-      1 => 1463594619,
+      1 => 1464105018,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.11',
   'unifunc' => 'content_573caf8772cc35_46436639',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_573caf8772cc35_46436639')) {function content_573caf8772cc35_46436639($_smarty_tpl) {?><div class="modal fade" id="winVentas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">

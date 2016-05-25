@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-05-23 22:34:04
+<?php /* Smarty version Smarty-3.1.11, created on 2016-05-25 12:33:04
          compiled from "templates/plantillas/modulos/clientes/listaEstadoCuenta.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1062990699573cb393590c65-01963395%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bc5371b51b69e1727f5a7834e74d37f1805775c7' => 
     array (
       0 => 'templates/plantillas/modulos/clientes/listaEstadoCuenta.tpl',
-      1 => 1464060792,
+      1 => 1464197574,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cliente' => 0,
     'limite' => 0,
     'saldo' => 0,
+    'objCliente' => 0,
     'lista' => 0,
     'row' => 0,
   ),
@@ -30,12 +31,22 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_573cb39361e672_40414451')) {function content_573cb39361e672_40414451($_smarty_tpl) {?><div class="box">
 	<div class="box-body">
 		<div class="alert alert-info" role="alert">
-			<b>Cliente: </b> <?php echo $_smarty_tpl->tpl_vars['cliente']->value;?>
+			<div class="row">
+				<div class="col-xs-12 col-sm-8">
+					<b>Cliente: </b> <?php echo $_smarty_tpl->tpl_vars['cliente']->value;?>
 <br />
-			<b>Límite de crédito: </b> <span class="warning"><?php if ($_smarty_tpl->tpl_vars['limite']->value>0){?><?php echo $_smarty_tpl->tpl_vars['limite']->value;?>
+					<b>Límite de crédito: </b> <span class="warning"><?php if ($_smarty_tpl->tpl_vars['limite']->value>0){?><?php echo $_smarty_tpl->tpl_vars['limite']->value;?>
 <?php }else{ ?>---<?php }?></span><br />
-			<b>Saldo deudor: </b> <span class="error"><?php echo $_smarty_tpl->tpl_vars['saldo']->value;?>
+					<b>Saldo deudor: </b> <span class="error"><?php echo $_smarty_tpl->tpl_vars['saldo']->value;?>
 </span><br />
+				</div>
+				<?php if ($_smarty_tpl->tpl_vars['objCliente']->value->getEmail()!=''){?>
+				<div class="col-sm-4 text-right">
+					<input type="button" id="btnSendEstadoCuenta" value="Enviar por correo" class="btn btn-danger" cliente="<?php echo $_smarty_tpl->tpl_vars['objCliente']->value->getId();?>
+"/>
+				</div>
+				<?php }?>
+			</div>
 		</div>
 		<table id="tblEstado" class="table table-bordered table-hover">
 			<thead>
