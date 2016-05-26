@@ -11,7 +11,7 @@
 
 class TMail{
 	private $phpMailer;
-	private $permitir = false;
+	private $permitir = true;
 	
 /**
 * Metodo Constructor
@@ -22,24 +22,27 @@ class TMail{
 		$this->phpMailer = new PHPMailer();
 		$datos = $rs->fields;
 		#$this->phpMailer->CharSet("UTF8");
+		global $ini;
 		
-		$this->empresa['nombreCorto'] = utf8_decode("Sistema de inscripciones");
+		$this->empresa['nombreCorto'] = utf8_decode($ini['sistema']['nombreEmpresa']);
 		$this->phpMailer->IsSMTP();
-		$this->phpMailer->Mailer = "smtp";
-		$this->phpMailer->SMTPSecure = "ssl";
+		$this->phpMailer->Port = 25;
 		$this->phpMailer->Host = $ini['mail']['server'];
 
 		$this->phpMailer->SMTPAuth = true;
-		$this->phpMailer->Port = $ini['mail']['puerto'];
-		$this->phpMailer->Username = $ini['mail']['usuario'];
+		$this->phpMailer->Username = $ini['mail']['user'];
 		$this->phpMailer->Password = $ini['mail']['pass'];
-		$this->phpMailer->IsHTML (true);
-		$this->phpMailer->FromName = 'CPYMES';
+		$this->phpMailer->IsHTML(true);
+		$this->phpMailer->FromName = utf8_decode($ini['sistema']['nombre']);
+		$this->setDirOrigen($ini['mail']['user']);
 		$this->phpMailer->SMTPSecure = 'tls';
-		$this->permitir = true;
-		
 		if ($ini['mail']['contestarA'] <> '')
 			$this->phpMailer->AddReplyTo($ini['mail']['contestarA']);
+			
+		$this->permitir = true;
+		
+		if (file_exists("templates/img/logomail.png"))
+			$this->addLogo("templates/img/logomail.png");
 	}
 	
 	public function setUser($val){
@@ -126,6 +129,11 @@ class TMail{
 	public function setDirOrigen($dir){
 		$this->phpMailer->From = $dir;
 		
+		return true;
+	}
+	
+	public function addLogo($file){
+		$this->phpMailer->AddEmbeddedImage($file, "logo", "logo.png");
 		return true;
 	}
 	

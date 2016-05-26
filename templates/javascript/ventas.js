@@ -335,6 +335,24 @@ $(document).ready(function(){
 				}
 			});
 			
+			$("[action=enviarComprobante]").click(function(){
+				pago = new TPago;
+				var el = $(this);
+				
+				pago.sendComprobante(el.attr("pago"), {
+					before: function(){
+						el.prop("disabled", true);
+					}, after: function(resp){
+						el.prop("disabled", false);
+						
+						if (resp.band == true)
+							alert("El comprobante se envió con éxito");
+						else
+							alert("Ocurrió un error al enviar el comprobante");
+					}
+				});
+			});
+			
 			$("#tblPagos").DataTable({
 				"responsive": true,
 				"language": espaniol,

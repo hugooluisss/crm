@@ -36,12 +36,12 @@ TCliente = function(){
 		}, "json");
 	};
 	
-	this.sendEstadoCuenta = function(cliente, fn){
+	this.sendEstadoCuenta = function(pago, fn){
 		if (fn.before !== undefined) fn.before();
 		
 		$.post('cclientes', {
 			"action": "enviarEstadoCuenta",
-			"id": cliente,
+			"id": pago,
 		}, function(data){
 			if (data.band == false)
 				console.log("Ocurrió un error al enviar el estado de cuenta");

@@ -16,6 +16,7 @@
 			<td class="text-right">{$row.monto}</td>
 			<td class="text-right">{$row.saldo}</td>
 			<td class="text-right">
+				<button type="button" class="btn btn-success" action="enviarComprobante" title="Enviar comprobante" pago='{$row.idPago}'><i class="fa fa-envelope-o"></i></button>
 				<button type="button" class="btn btn-danger" action="eliminarPago" title="Eliminar" pago='{$row.idPago}'><i class="fa fa-times"></i></button>
 			</td>
 		</tr>

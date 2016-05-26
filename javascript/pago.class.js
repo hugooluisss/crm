@@ -32,4 +32,18 @@ TPago = function(){
 			if (fn.after !== undefined) fn.after(data);
 		}, "json");
 	};
+	
+	this.sendComprobante = function(id, fn){
+		if (fn.before !== undefined) fn.before();
+		
+		$.post('cpagos', {
+			"action": "sendComprobante",
+			"id": id,
+		}, function(data){
+			if (data.band == false)
+				console.log("Ocurrió un error al enviar el comprobante de pago");
+			
+			if (fn.after !== undefined) fn.after(data);
+		}, "json");
+	}
 };

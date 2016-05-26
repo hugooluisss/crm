@@ -43,6 +43,36 @@ switch($objModulo->getId()){
 				else
 					echo json_encode(array("band" => "false"));
 			break;
+			case 'sendComprobante':
+				$obj = new TPago($_POST['id']);
+				$objVenta = new TVenta($obj->getVenta());
+				$usuario = new TUsuario($_POST['usuario'] == ''?$userSesion->getId():$_POST['usuario']);
+				
+				$email = new TMail;
+				
+				$datos = array();
+				$email->setTema("Gracias por su pago");
+				$email->setDestino($objVenta->cliente->getEmail(), utf8_decode($objVenta->cliente->getNombre()));
+				
+				$datos = array();
+				$datos['cliente.nombre'] = $objVenta->cliente->getNombre();
+				$datos['empresa.correo'] = $usuario->getEmail();
+				$datos['empresa.nombre'] = $usuario->empresa->getRazonSocial();
+				$datos['empresa.direccion'] = $usuario->empresa->getDireccion();
+				$datos['usuario.nombre'] = $usuario->getNombre();
+				
+				
+				$datos['pago.fecha'] = $obj->getFecha();
+				$datos['pago.monto'] = sprintf("%.2f", $obj->getMonto());
+				$datos['pago.saldo'] = sprintf("%.2f", $objVenta->getSaldo());
+				
+				$email->setBodyHTML(utf8_decode($email->construyeMail(file_get_contents("repositorio/email/pagos.html"), $datos)));
+				
+				$email->addImg("repositorio/email/images/facebook.png", "facebook", "facebook.png");
+				$email->addImg("repositorio/email/images/line.png", "line", "line.png");
+				
+				echo json_encode(array("band" => $email->send(), "email" => $objVenta->cliente->getEmail()));
+			break;
 			case 'pagos':
 				$db = TBase::conectaDB();
 				
