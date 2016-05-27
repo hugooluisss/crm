@@ -41,4 +41,5 @@
 	<button type="submit" class="btn btn-info pull-right">Guardar</button>
 	<input type="hidden" id="id" value="{$usuario.idUsuario}"/>
 	<input type="hidden" id="perfil" value="{$usuario.idPerfil}"/>
+	<input type="hidden" id="perfil" value="{$usuario.idEmpresa}"/>
 </form>

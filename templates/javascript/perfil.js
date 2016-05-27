@@ -46,6 +46,7 @@ $(document).ready(function(){
 			var obj = new TUsuario;
 			obj.add(
 				$("#id").val(), 
+				$("#empresa").val(),
 				$("#txtNombre").val(), 
 				$("#txtApellidos").val(),
 				$("#txtEmail").val(),
