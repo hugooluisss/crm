@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	getLista();
+	getLista($("#empresa").val());
 	
 	$('.nav a[href="#add"]').click(function(){
 		$("#frmAdd")[0].reset();
@@ -29,7 +29,7 @@ $(document).ready(function(){
 				{
 					after: function(datos){
 						if (datos.band){
-							getLista();
+							getLista($("#empresa").val());
 							
 							$("#frmAdd").get(0).reset();
 							$('.nav a[href="#lista"]').tab('show');
@@ -43,16 +43,18 @@ $(document).ready(function(){
 
     });
     
-	function getLista(){
-		$.get("listaSuscripciones", function(html){
+	function getLista(empresa){
+		$.post("listaSuscripciones", {
+			"empresa": empresa
+		}, function(html){
 			$("#dvLista").html(html);
 			
 			$("[action=modificar]").click(function(){
 				var el = jQuery.parseJSON($(this).attr("datos"));
 				
 				$("#id").val(el.idSuscripcion);
-				$("#txtNombre").val(el.nombre);
-				$("#txtFecha").val(el.descripcion);
+				//$("#txtNombre").val(el.nombre);
+				$("#txtFecha").val(el.inicio);
 				
 				$('.nav a[href="#add"]').tab('show');
 			});
@@ -64,7 +66,7 @@ $(document).ready(function(){
 						after: function(data){
 							if (data.band == false)
 								alert("Ocurrió un error al eliminar la suscripción");
-							getLista();
+							getLista($("#empresa").val());
 						}
 					});
 				}

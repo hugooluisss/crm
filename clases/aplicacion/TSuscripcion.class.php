@@ -156,11 +156,11 @@ class TSuscripcion{
 	* @return date Fecha
 	*/
 	
-	public function getFin(){
+	public function getFin($recalcular = false){
 		if ($this->paquete->getId() == '') return false;
 		
-		if ($this->fin == '')
-		return $this->paquete->getTermina($this->getInicio());
+		if ($this->fin == '' or $recalcular == true)
+			return $this->paquete->getTermina($this->getInicio());
 		
 		return $this->fin;
 	}
@@ -216,11 +216,11 @@ class TSuscripcion{
 		
 		if ($this->idSuscripcion == '')
 			return false;
-		
+			
 		$rs = $db->Execute("UPDATE suscripcion
 			SET
 				inicio = '".$this->getInicio()."',
-				fin = '".$this->getFin()."',
+				fin = '".$this->getFin(true)."',
 				codigo = '".$this->getCodigo()."'
 			WHERE idSuscripcion = ".$this->getId());
 			

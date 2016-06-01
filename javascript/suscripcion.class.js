@@ -8,7 +8,8 @@ TSuscripcion = function(){
 				"action": "guardar",
 				"empresa": empresa,
 				"paquete": paquete,
-				"inicio": inicio
+				"inicio": inicio,
+				"id": id
 			}, function(data) {
 				if (data.band == 'false')
 					console.log(data.mensaje !== ''?data.mensaje:"Upps. Ocurrió un error al agregar la suscripción");
