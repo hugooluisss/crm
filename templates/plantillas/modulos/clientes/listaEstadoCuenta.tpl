@@ -20,6 +20,7 @@
 					<th>ID</th>
 					<th>Fecha</th>
 					<th>Monto</th>
+					<th>Pago</th>
 					<th>Saldo</th>
 				</tr>
 			</thead>
@@ -29,6 +30,7 @@
 						<td>{$row.idVenta}</td>
 						<td>{$row.fecha}</td>
 						<td class="text-right">{$row.monto}</td>
+						<td class="text-right">{$row.pago}</td>
 						<td class="text-right">{$row.saldo}</td>
 					</tr>
 				{/foreach}

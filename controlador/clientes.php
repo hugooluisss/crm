@@ -19,7 +19,7 @@ switch($objModulo->getId()){
 	case 'estadoCuenta':
 		$db = TBase::conectaDB();
 		global $userSesion;
-		$rs = $db->Execute("select idVenta, sum(precio) as monto, a.fecha from venta a join movventa b using(idVenta) left join pago c using(idVenta) where idCliente = ".$_POST['cliente']." group by idVenta;");
+		$rs = $db->Execute("select idVenta, a.fecha from venta a where idCliente = ".$_POST['cliente'].";");
 		$datos = array();
 		$venta = new TVenta;
 		$cliente = new TCliente($_POST['cliente']);
@@ -27,6 +27,8 @@ switch($objModulo->getId()){
 		while(!$rs->EOF){
 			$venta->setId($rs->fields['idVenta']);
 			$rs->fields['saldo'] = sprintf("%0.2f", $venta->getSaldo());
+			$rs->fields['monto'] = sprintf("%0.2f", $venta->getMontoVenta());
+			$rs->fields['pago'] = sprintf("%0.2f", $venta->getMontoPagos());
 			$rs->fields['json']	= json_encode($rs->fields);
 			
 			if ($rs->fields['saldo'] > 0){

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-05-25 20:50:54
+<?php /* Smarty version Smarty-3.1.11, created on 2016-06-06 13:27:04
          compiled from "templates/plantillas/modulos/clientes/listaEstadoCuenta.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1062990699573cb393590c65-01963395%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bc5371b51b69e1727f5a7834e74d37f1805775c7' => 
     array (
       0 => 'templates/plantillas/modulos/clientes/listaEstadoCuenta.tpl',
-      1 => 1464202958,
+      1 => 1465237587,
       2 => 'file',
     ),
   ),
@@ -54,6 +54,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<th>ID</th>
 					<th>Fecha</th>
 					<th>Monto</th>
+					<th>Pago</th>
 					<th>Saldo</th>
 				</tr>
 			</thead>
@@ -69,6 +70,8 @@ $_smarty_tpl->tpl_vars["row"]->_loop = true;
 						<td><?php echo $_smarty_tpl->tpl_vars['row']->value['fecha'];?>
 </td>
 						<td class="text-right"><?php echo $_smarty_tpl->tpl_vars['row']->value['monto'];?>
+</td>
+						<td class="text-right"><?php echo $_smarty_tpl->tpl_vars['row']->value['pago'];?>
 </td>
 						<td class="text-right"><?php echo $_smarty_tpl->tpl_vars['row']->value['saldo'];?>
 </td>
