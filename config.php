@@ -322,3 +322,9 @@ $conf['estadoCuenta'] = array(
 	'descripcion' => 'Estado de cuenta del cliente',
 	'seguridad' => false,
 	'capa' => LAYOUT_AJAX);
+	
+$conf['ticket'] = array(
+	'controlador' => 'ventas.php',
+	'descripcion' => 'Impresión del ticket',
+	'seguridad' => false,
+	'capa' => LAYOUT_AJAX);

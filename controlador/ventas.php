@@ -41,6 +41,36 @@ switch($objModulo->getId()){
 		$smarty->assign("sobrepaso", sprintf("%.2f", $objVenta->cliente->getSaldo() - $objVenta->cliente->getLimite()));
 		$smarty->assign("total", sprintf("%.2f", $precio));
 	break;
+	case 'ticket':
+		$venta = new TVenta($_GET['id']);
+		$html = file_get_contents("repositorio/impresiones/ticket.html");
+
+		$html = str_replace("#*empresa.razonsocial*#", $venta->usuario->empresa->getRazonSocial(), $html);
+		$html = str_replace("#*empresa.direccion*#", $venta->usuario->empresa->getDireccion(), $html);
+		$html = str_replace("#*venta.fecha*#", $venta->getFecha(), $html);
+		$html = str_replace("#*venta.total*#", $venta->getMontoVenta(), $html);
+		
+		#*empresa.razonsocial*#
+		$db = TBase::conectaDB();
+		$rs = $db->Execute("select idMovimiento from movventa where idVenta = ".$_GET['id']);
+		$movimientos = "";
+		while(!$rs->EOF){
+			$mov = new TMovimiento($rs->fields['idMovimiento']);
+			$plantillaMov = file_get_contents("repositorio/impresiones/detalleTicket.html");
+			$plantillaMov = str_replace("#*item.codigo*#", $mov->getClave(), $plantillaMov);
+			$plantillaMov = str_replace("#*item.descripcion*#", $mov->getDescripcion(), $plantillaMov);
+			$plantillaMov = str_replace("#*item.cantidad*#", $mov->getCantidad(), $plantillaMov);
+			$plantillaMov = str_replace("#*item.total*#", sprintf("%.2f", $mov->getPrecio() * $mov->getCantidad()), $plantillaMov);
+			
+			$movimientos .= $plantillaMov;
+			
+			$rs->moveNext();
+		}
+		
+		$html = str_replace("#*venta.movimientos*#", $movimientos, $html);
+		
+		echo $html;
+	break;
 	case 'cventas':
 		switch($objModulo->getAction()){
 			case 'guardar':

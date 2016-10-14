@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2016-04-29 08:59:40
+<?php /* Smarty version Smarty-3.1.11, created on 2016-10-14 08:21:56
          compiled from "templates/plantillas/modulos/ventas/lista.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1498483102571feaaf549016-23257186%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '79731998ddf826714b60029001476656ec1216cf' => 
     array (
       0 => 'templates/plantillas/modulos/ventas/lista.tpl',
-      1 => 1461937729,
+      1 => 1476451313,
       2 => 'file',
     ),
   ),
@@ -63,6 +63,8 @@ $_smarty_tpl->tpl_vars["row"]->_loop = true;
 							</select>
 						</td>
 						<td style="text-align: right">
+							<button type="button" class="btn btn-warning" action="imprimir" title="Imprimir ticket" venta="<?php echo $_smarty_tpl->tpl_vars['row']->value['idVenta'];?>
+"><i class="fa fa-print"></i></button>
 							<button type="button" class="btn btn-success" action="pagos" title="Pagos" venta="<?php echo $_smarty_tpl->tpl_vars['row']->value['idVenta'];?>
 "><i class="fa fa-money"></i></button>
 							<button type="button" class="btn btn-default" action="modificar" title="Modificar" datos='<?php echo $_smarty_tpl->tpl_vars['row']->value['json'];?>

@@ -21,7 +21,7 @@ class TVenta{
 	* @param int $id identificador del objeto
 	*/
 	public function TVenta($id = ''){
-		$this->empresa = new TEmpresa();
+		$this->cliente = new TCliente();
 		$this->usuario = new TUsuario();
 		
 		$this->setId($id);

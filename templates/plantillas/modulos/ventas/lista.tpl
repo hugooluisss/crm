@@ -27,6 +27,7 @@
 							</select>
 						</td>
 						<td style="text-align: right">
+							<button type="button" class="btn btn-warning" action="imprimir" title="Imprimir ticket" venta="{$row.idVenta}"><i class="fa fa-print"></i></button>
 							<button type="button" class="btn btn-success" action="pagos" title="Pagos" venta="{$row.idVenta}"><i class="fa fa-money"></i></button>
 							<button type="button" class="btn btn-default" action="modificar" title="Modificar" datos='{$row.json}'><i class="fa fa-pencil"></i></button>
 							<button type="button" class="btn btn-danger" action="eliminar" title="Eliminar" venta="{$row.idVenta}"><i class="fa fa-times"></i></button>

@@ -208,6 +208,10 @@ $(document).ready(function(){
 				}
 			});
 			
+			$("#dvLista").find("[action=imprimir]").click(function(){
+				window.open("index.php?mod=ticket&id=" + $(this).attr("venta"));
+			});
+			
 			$("#tblVentas").DataTable({
 				"responsive": true,
 				"language": espaniol,
